@@ -1,6 +1,5 @@
 :root {
-  --font-family: "Open Sans", sans-serif;
-  --font-family-alt: Prata, serif;
+  --font-family: 'Atyp Display', sans-serif;
 }
 
 html {
@@ -18,7 +17,7 @@ html {
 .text-h2,
 .text-h3,
 .text-h4 {
-  font-family: var(--font-family-alt);
+  font-family: var(--font-family);
   font-weight: normal;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="homepage">
-    <h1>GTA Home Page</h1>
+    <Hero />
   </div>
 </template>
 
