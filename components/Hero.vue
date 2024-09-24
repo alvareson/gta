@@ -21,7 +21,7 @@
 
 .hero {
   position: relative;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 7rem);
   overflow: hidden;
 
   &__container {
