@@ -1,11 +1,6 @@
 <template>
   <form class="search-form">
     <div class="search-form__inner" :class="{ 'search-form__inner--open': isMobileSearchVisible }">
-      <header class="search-form__header" v-if="isMobileSearchVisible">
-        <button class="search-form__close" type="button" @click="isMobileSearchVisible = false">
-          <Icon name="close" />
-        </button>
-      </header>
 
       <div class="search-form__body">
         <div class="search-form__input">
@@ -24,6 +19,7 @@
           Search
         </button>
       </div>
+
     </div>
     <button class="search-form__toggle" type="button" @click="isMobileSearchVisible = true">
       {{ location }}
@@ -68,12 +64,13 @@ const onSearch = () => {
 <style lang="scss">
 .search-form {
   &__inner {
+    position: relative;
     display: flex;
     align-items: center;
     background: #000000;
-    border-radius: 2rem;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   }
 
   &__header {
