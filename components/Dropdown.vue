@@ -50,6 +50,7 @@ watch(value, (newValue: string) => {
     background-color: #fff;
     font-size: 1rem;
     cursor: pointer;
+    font-size: 1.2rem;
 
     appearance: none;
   }

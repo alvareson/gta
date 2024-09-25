@@ -88,7 +88,7 @@ const onSearch = () => {
     display: flex;
     align-items: center;
     background: #000000;
-    padding: 1rem;
+    padding: 2rem;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
   }
@@ -101,18 +101,19 @@ const onSearch = () => {
 
   &__dropdown {
     margin-right: 1rem;
-    flex: 1
+    flex: 1;
+    width: 12rem;
   }
 
   &__search-btn {
     cursor: pointer;
     background-color: var(--color-white);
     color: var(--color-primary);
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 0.25rem;
     border: 1px solid #c4c4c4;
-    width: 9rem;
-    height: 2.3rem;
+    width: 12rem;
+    height: 2.45rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;

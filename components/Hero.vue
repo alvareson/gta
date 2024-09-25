@@ -28,7 +28,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 5rem;
+    padding: 3rem;
     box-sizing: border-box;
     z-index: 3;
   }
