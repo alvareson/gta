@@ -292,7 +292,7 @@ const youtubeEmbedUrl = (url: string) => {
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.33;
-    color: var(--color-primary);
+    color: var(--color-black);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     background: var(--color-white);
@@ -408,7 +408,7 @@ const youtubeEmbedUrl = (url: string) => {
     --button-size: 3rem;
     --swiper-navigation-size: 1rem;
     --swiper-navigation-sides-offset: 2rem;
-    --swiper-navigation-color: var(--color-primary);
+    --swiper-navigation-color: var(--color-black);
     --swiper-navigation-top-offset: calc(50% - var(--button-size) / 2);
     width: 100%;
 

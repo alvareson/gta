@@ -89,7 +89,7 @@ const social = [
   padding-inline: 1.5rem;
   overflow: auto;
   color: var(--color-tertiary);
-  background: var(--color-primary);
+  background: var(--color-black);
   transition: transform 0.4s ease-in-out;
   transform: translateY(-100%);
 

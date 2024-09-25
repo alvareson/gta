@@ -139,7 +139,7 @@
   &__footer {
     text-align: center;
     font-size: 1.5rem;
-    color: var(--color-primary);
+    color: var(--color-black);
     margin-top: 2rem;
   }
 }

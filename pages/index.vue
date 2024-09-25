@@ -1,6 +1,8 @@
 <template>
   <div class="homepage">
     <Hero />
+    <FeaturedProperties />
+    <NewDevelopments />
   </div>
 </template>
 

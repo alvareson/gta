@@ -153,7 +153,7 @@ const handleSubmit = async () => {
         width: 2rem;
         height: 2rem;
         content: "";
-        border: 0.0625rem solid var(--color-primary);
+        border: 0.0625rem solid var(--color-black);
         opacity: 0.2;
         transition: 0.3s;
         transition-property: transform, opacity;
@@ -198,7 +198,7 @@ const handleSubmit = async () => {
     color: inherit;
     background: none;
     border: none;
-    border-bottom: 0.0625rem solid rgba(var(--color-primary-rgb), var(--border-opacity));
+    border-bottom: 0.0625rem solid rgba(var(--color-black-rgb), var(--border-opacity));
     transition: border 0.25s;
 
     &::placeholder {

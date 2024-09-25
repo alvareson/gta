@@ -8,6 +8,9 @@
         <source src="/video/los-angeles.mp4" type="video/mp4" />
       </video>
     </div>
+    <div class="hero__text">
+      <h1>Bring Life to Your Lifestyle</h1>
+    </div>
   </section>
 </template>
 
@@ -52,6 +55,14 @@
       z-index: -100;
       object-fit: cover;
     }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 1rem;
+    left: 3rem;
+    font-size: 2rem;
+    color: var(--color-white);
   }
 }
 

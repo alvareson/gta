@@ -1,7 +1,16 @@
 @font-face {
   font-family: 'Atyp Display';
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: url("/fonts/AtypDisplay-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atyp Display Semibold';
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/AtypDisplay-Semibold.woff2") format("woff2");
   font-display: swap;
 }

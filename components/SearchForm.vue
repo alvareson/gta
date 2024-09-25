@@ -87,7 +87,7 @@ const onSearch = () => {
     position: relative;
     display: flex;
     align-items: center;
-    background: #000000;
+    background: var(--color-black);
     padding: 2rem;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
@@ -108,7 +108,7 @@ const onSearch = () => {
   &__search-btn {
     cursor: pointer;
     background-color: var(--color-white);
-    color: var(--color-primary);
+    color: var(--color-black);
     font-size: 1.2rem;
     border-radius: 0.25rem;
     border: 1px solid #c4c4c4;
@@ -140,13 +140,13 @@ const onSearch = () => {
   }
 
   &__button-buy {
-    background-color: var(--color-primary);
+    background-color: var(--color-black);
     color: var(--color-white);
   }
 
   &__button-rent {
     background-color: var(--color-lemon);
-    color: var(--color-primary);
+    color: var(--color-black);
   }
 }
 </style>

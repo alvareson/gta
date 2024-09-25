@@ -15,7 +15,8 @@
     "nuxt-directus": "5.6.0",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5",
-    "vue-tel-input": "^9.1.4"
+    "vue-tel-input": "^9.1.4",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "sass-embedded": "^1.79.3"

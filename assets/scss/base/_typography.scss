@@ -1,9 +1,12 @@
 :root {
-  --font-family: 'Atyp Display', sans-serif;
+  --font-family-regular: 'Atyp Display', sans-serif;
+  --font-family-semibold: 'Atyp Display Semibold', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 800;
 }
 
 html {
-  font-family: var(--font-family);
+  font-family: var(--font-family-regular);
   font-size: 1rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -17,8 +20,13 @@ html {
 .text-h2,
 .text-h3,
 .text-h4 {
-  font-family: var(--font-family);
-  font-weight: normal;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-regular);
+}
+
+.semibold-text {
+  font-family: var(--font-family-semibold);
+  font-weight: var(--font-weight-semibold);
 }
 
 .text-h1 {

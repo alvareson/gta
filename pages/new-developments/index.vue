@@ -250,7 +250,7 @@ watch(() => route.query, () => {
       padding: 0 1rem 1rem;
       overflow: auto;
       color: var(--color-white);
-      background: var(--color-primary);
+      background: var(--color-black);
       transition: transform 0.4s ease-in-out;
       transform: translateY(-100%);
 
@@ -341,7 +341,7 @@ watch(() => route.query, () => {
       }
 
       option {
-        background: var(--color-primary);
+        background: var(--color-black);
       }
     }
 
@@ -440,7 +440,7 @@ watch(() => route.query, () => {
   &__body {
     padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 3.5rem);
     padding-bottom: clamp(2.5rem, 2.2451rem + 1.0458vw, 3.5rem);
-    color: var(--color-primary);
+    color: var(--color-black);
     background: var(--color-tertiary);
   }
 
@@ -460,7 +460,7 @@ watch(() => route.query, () => {
 
     .property-card,
     .property-card__person {
-      border-color: rgba(var(--color-primary-grb), 0.2);
+      border-color: rgba(var(--color-black-grb), 0.2);
     }
   }
 
