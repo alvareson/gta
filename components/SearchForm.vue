@@ -1,35 +1,48 @@
 <template>
   <form class="search-form">
-    <div class="search-form__inner" :class="{ 'search-form__inner--open': isMobileSearchVisible }">
 
+    <div class="search-form__inner" :class="{ 'search-form__inner--open': isMobileSearchVisible }">
       <div class="search-form__body">
-        <div class="search-form__input">
-          <Icon class="search-form__icon" name="phone" />
-          <input
-            type="text"
-            class="search-form__input-field"
-            placeholder="Search for properties"
-            v-model="neighborhood"
+
+        <div class="search-form__dropdown">
+          <Dropdown 
+            :options="locations" 
+            v-model="selectedLocation" 
+            placeholder="Location"
           />
         </div>
-        <button type="button" class="search-form__filter-btn" @click="isFiltersOpen = true">
-          Filters
-        </button>
+
+        <div class="search-form__dropdown">
+          <Dropdown 
+            :options="propertyTypes" 
+            v-model="selectedType" 
+            placeholder="Type"
+          />
+        </div>
+
+        <div class="search-form__dropdown">
+          <Dropdown 
+            :options="priceOptions" 
+            v-model="selectedPrice" 
+            placeholder="Price"
+          />
+        </div>
+
         <button type="button" class="search-form__search-btn" @click="onSearch">
           Search
         </button>
       </div>
-
     </div>
-    <button class="search-form__toggle" type="button" @click="isMobileSearchVisible = true">
-      {{ location }}
-      <Icon name="search" />
-    </button>
+
+    <div class="search-form__buttons">
+      <button type="button" class="search-form__button-buy" @click="setDealType('buy')">Buy</button>
+      <button type="button" class="search-form__button-rent" @click="setDealType('rent')">Rent</button>
+    </div>
+
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue"
 import { useRouter } from 'vue-router'
 import { useWatcher } from "@/composables/watcher"
 
@@ -47,6 +60,13 @@ const maxPrice = ref(1_000_000)
 
 const location = computed(() => "location")
 const metaData: Ref<MetaData | null> = ref(null)
+
+const locations = ref(["New York", "Los Angeles", "Chicago", "Miami"])
+const propertyTypes = ref(["Apartment", "House", "Condo", "Townhouse"])
+const priceOptions = ref(["< $500k", "$500k - $1M", "$1M - $2M", "> $2M"])
+const selectedLocation = ref("")
+const selectedType = ref("")
+const selectedPrice = ref("")
 
 useWatcher(isMobileSearchVisible)
 
@@ -70,15 +90,7 @@ const onSearch = () => {
     background: #000000;
     padding: 1rem;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-  }
-
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 6rem;
-    margin-bottom: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
   }
 
   &__body {
@@ -87,55 +99,53 @@ const onSearch = () => {
     width: 100%;
   }
 
-  &__input {
-    width: 32rem;
-    position: relative;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
+  &__dropdown {
     margin-right: 1rem;
+    flex: 1
   }
 
-  &__icon {
-    margin-right: 0.5rem;
-    color: #c4c4c4;
-  }
-
-  &__input-field {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    color: #c4c4c4;
-    background: transparent;
-    padding: 0 0.5rem;
-  }
-
-  &__filter-btn,
   &__search-btn {
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
     cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #c4c4c4;
+    width: 9rem;
+    height: 2.3rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   }
 
-  &__toggle {
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    width: min(22.375rem, 100%);
-    height: 3rem;
-    margin-inline: auto;
-    padding-inline: 1rem;
-    color: var(--color-quaternary);
-    background: var(--color-white);
+  &__buttons {
+    display: flex;
+  }
 
-    @media (max-width: 47.9375rem) {
-      display: flex;
-    }
+  &__button-buy,
+  &__button-rent {
+    display: flex;
+    width: 6rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 15px) 100%, 0 100%);
+    transform: translateY(-1px);
+  }
+
+  &__button-buy {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &__button-rent {
+    background-color: var(--color-lemon);
+    color: var(--color-primary);
   }
 }
 </style>

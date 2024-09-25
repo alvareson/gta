@@ -52,12 +52,6 @@
       z-index: -100;
       object-fit: cover;
     }
-
-    &::after {
-      position: absolute;
-      inset: 0;
-      content: "";
-    }
   }
 }
 
