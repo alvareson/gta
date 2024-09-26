@@ -1,24 +1,23 @@
 <template>
-  <div class="properties">
-    <header class="properties__header">
-      <div class="container">
-        <h1 class="properties__title text-h2">Rent</h1>
-        <SearchForm class="properties__search-form" />
-      </div>
-    </header>
-    <div class="properties__body">
-      <div class="container">
-        <!-- <div v-if="properties?.data && properties?.data.length > 0" class="properties__cards">
-          <template v-for="property in properties.data" :key="properties.data.id">
-            <PropertyCard :property="property" :broker="findBrokerById(property.broker.id)" />
-          </template>
-        </div> -->
-        <div v-if="properties && properties.length > 0" class="properties__cards">
-          <template v-for="property in properties" :key="properties.id">
-            <PropertyCard :property="property" />
+  <div class="properties-rent">
+    <div class="properties-rent__container">
+      <header class="properties-rent__header">
+        <h1 class="properties-rent__title text-h2">Properties For Rent ></h1>
+        <SearchbarLine class="properties-rent__search-form" />
+      </header>
+      <div class="properties-rent__body">
+        <div v-if="properties && properties.length > 0" class="properties-rent__list">
+          <template v-for="property in properties" :key="property.id">
+            <PropertyListItem :property="property" />
           </template>
         </div>
-        <!-- <Pagination :total="properties?.total" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="properties__pagination" /> -->
+        <Pagination
+          :total="100"
+          :page-size="pageSize"
+          :page="currentPage"
+          @update:page="changePage"
+          class="properties-rent__pagination"
+        />
       </div>
     </div>
   </div>
@@ -31,13 +30,15 @@ import { getBrokers } from "~/data/properties/api"
 import { PropertyTypes } from "~/utils/types"
 import { useWatcher } from "@/composables/watcher"
 
+const route = useRoute()
+
 const pageTitle = computed(() => {
   const dealType = route.params.dealType
-  return dealType === 'sale' ? 'PROPERTIES FOR SALE' : 'PROPERTIES FOR RENT'
+  return dealType === 'rent' ? 'PROPERTIES FOR RENT' : 'PROPERTIES FOR SALE'
 })
 
 const filters = ref({
-  dealType: '',
+  dealType: 'rent', // Set default to 'rent'
   category: '',
   neighborhood: '',
   minPrice: null,
@@ -46,7 +47,7 @@ const filters = ref({
 
 const applyQueryParams = () => {
   const query = route.query
-  filters.value.dealType = query.dealType as string
+  filters.value.dealType = (query.dealType as string) || 'rent'
   filters.value.category = query.category as string
   filters.value.neighborhood = query.neighborhood as string
   filters.value.minPrice = query.minPrice ? Number(query.minPrice) : null
@@ -55,7 +56,6 @@ const applyQueryParams = () => {
 
 const metaData = ref<object | null>(null)
 const communities = ref<string[] | null>(null)
-const route = useRoute()
 const pageSize = 15
 const currentPage = ref(1)
 
@@ -64,32 +64,51 @@ const properties = computed(() => {
     {
       id: 1,
       icon: "/img/apartments/flat1.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      location: "Dubai , Al Barsha , Al Barsha Villas",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 2,
       icon: "/img/apartments/flat2.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 3,
       icon: "/img/apartments/flat3.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 4,
@@ -179,13 +198,18 @@ const properties = computed(() => {
 //   return brokersData.value?.find(broker => broker.brokerId === brokerId) || {}
 // }
 
-onMounted(async () => {
+const changePage = (newPage: number) => {
+  currentPage.value = newPage
+}
+
+onMounted(() => {
   applyQueryParams()
-  // metaData.value = meta.value
-  // if (metaData.value) {
-  //   communities.value = metaData.value.communities
-  // }
 })
+
+watch(() => route.query, () => {
+  applyQueryParams()
+  // refresh() // Uncomment if using useFetch or similar for dynamic data
+}, { deep: true })
 
 // useSeoMeta({
 //   title: "Properties | Horizon Vista Real Estate Agency",
@@ -196,10 +220,6 @@ onMounted(async () => {
 //   publisher: "Horizon Vista"
 // })
 
-watch(() => route.query, () => {
-  applyQueryParams()
-  // refresh()
-}, { deep: true })
 
 // watch(currentPage, () => {
 //   refresh()
@@ -215,11 +235,11 @@ watch(() => route.query, () => {
 </script>
 
 <style lang="scss">
-.properties {
-  background: var(--color-quaternary);
+.properties-rent {
+  background: var(--color-black);
 
-  .container {
-    --container-width: 106.5rem;
+  &__container {
+    // You can add container-specific styles here if needed
   }
 
   &__search-form {
@@ -227,9 +247,10 @@ watch(() => route.query, () => {
   }
 
   &__header {
-    padding-top: clamp(1rem, 0.299rem + 2.8758vw, 3.75rem);
+    padding-top: clamp(0.5rem, 0.299rem + 1.8758vw, 2.15rem);
     padding-bottom: clamp(1.5rem, 0.9902rem + 2.0915vw, 3.5rem);
     color: var(--color-white);
+    padding-inline: 3rem;
   }
 
   &__title {
@@ -240,219 +261,22 @@ watch(() => route.query, () => {
     }
   }
 
-  &__filter {
-    @media (max-width: 47.9375rem) {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      padding: 0 1rem 1rem;
-      overflow: auto;
-      color: var(--color-white);
-      background: var(--color-black);
-      transition: transform 0.4s ease-in-out;
-      transform: translateY(-100%);
-
-      &--open {
-        transform: translateY(0);
-      }
-    }
-
-    &-header {
-      display: none;
-
-      @media (max-width: 47.9375rem) {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 6rem;
-        margin-bottom: 1rem;
-      }
-    }
-
-    &-logo {
-      display: grid;
-      place-content: center;
-      width: 6rem;
-      height: 6rem;
-
-      svg {
-        width: 100%;
-        margin-top: 0.5rem;
-      }
-    }
-
-    &-close {
-      display: grid;
-      gap: 0.25rem;
-      place-items: center;
-      font-family: var(--font-family-alt);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-    }
-
-    &-body {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-
-      @media (max-width: 63.9375rem) {
-        gap: 1rem;
-      }
-
-      @media (max-width: 47.9375rem) {
-        flex-direction: column;
-        gap: 1rem;
-        width: min(22.375rem, 100%);
-        margin-inline: auto;
-      }
-    }
-  }
-
-  &__select {
-    position: relative;
-    width: 19rem;
-    height: 3.5rem;
-    // color: var(--color-quaternary);
-
-    @media (max-width: 63.9375rem) {
-      flex-grow: 1;
-      width: 14rem;
-    }
-
-    @media (max-width: 47.9375rem) {
-      width: 100%;
-    }
-
-    &-field {
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding-inline: 1.5rem 3.25rem;
-      font-weight: 500;
-      color: inherit;
-      appearance: none;
-      background: none;
-      border: 0.0625rem solid var(--color-quinary);
-
-      &:focus {
-        outline: none;
-      }
-
-      option {
-        background: var(--color-black);
-      }
-    }
-
-    &-icon {
-      position: absolute;
-      inset-inline-end: 1rem;
-      top: 1rem;
-      color: inherit;
-      pointer-events: none;
-    }
-  }
-
-  &__price {
-    display: flex;
-    border: 0.0625rem solid var(--color-quinary);
-
-    @media (max-width: 63.9375rem) {
-      flex-grow: 1;
-    }
-
-    @media (max-width: 47.9375rem) {
-      flex-direction: column;
-      gap: 1rem;
-      border: none;
-    }
-
-    &-field {
-      display: flex;
-      flex: 1;
-      min-width: 0;
-      max-width: 12.5rem;
-
-      @media (max-width: 63.9375rem) {
-        max-width: 100%;
-      }
-
-      @media (max-width: 47.9375rem) {
-        border: 0.0625rem solid var(--color-quinary);
-      }
-
-      &:not(:first-child) {
-        border-inline-start: 0.0625rem solid var(--color-quinary);
-      }
-    }
-
-    &-input {
-      width: 100%;
-      height: 3.5rem;
-      padding-inline: 1.5rem;
-      color: inherit;
-      background: none;
-      border: none;
-
-      &::placeholder {
-        color: var(--color-quaternary);
-        opacity: 1;
-      }
-
-      &::-webkit-inner-spin-button {
-        display: none;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &-currency {
-      align-self: center;
-      padding-inline-end: 1.5rem;
-      color: var(--color-quaternary);
-    }
-  }
-
-  &__submit {
-    display: block;
-
-    @media (max-width: 47.9375rem) {
-      display: block;
-    }
-  }
-
-  &__toggle-filter {
-    display: none;
-
-    @media (max-width: 47.9375rem) {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-  }
 
   &__body {
     padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 3.5rem);
     padding-bottom: clamp(2.5rem, 2.2451rem + 1.0458vw, 3.5rem);
     color: var(--color-black);
-    background: var(--color-tertiary);
+    background: var(--color-white);
   }
 
-  &__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: clamp(1rem, 0.6176rem + 1.5686vw, 2.5rem);
-
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    gap: 2rem;
     color: var(--color-white);
-
-    .property-card,
-    .property-card__person {
-      border-color: rgba(var(--color-black-grb), 0.2);
-    }
+    padding: 0 2rem;
   }
 
   &__pagination {
