@@ -60,13 +60,12 @@ const displayPrice = computed(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translateY(-10%);
   }
 
   &__content {
     position: absolute;
     width: max-content;
-    top: 14%;
+    top: 18%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color-white);
