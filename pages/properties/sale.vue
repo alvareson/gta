@@ -1,17 +1,17 @@
 <template>
-  <div class="properties">
-    <div class="properties__container">
-      <header class="properties__header">
-        <h1 class="properties__title text-h2">Properties For Sale ></h1>
-        <SearchForm class="properties__search-form" />
+  <div class="properties-sale">
+    <div class="properties-sale__container">
+      <header class="properties-sale__header">
+        <h1 class="properties-sale__title text-h2">Properties For Sale ></h1>
+        <SearchbarLine class="properties-sale__search-form" />
       </header>
-      <div class="properties__body">
-        <div v-if="properties && properties.length > 0" class="properties__list">
+      <div class="properties-sale__body">
+        <div v-if="properties && properties.length > 0" class="properties-sale__list">
           <template v-for="property in properties" :key="properties.id">
             <PropertyListItem :property="property" />
           </template>
         </div>
-        <!-- <Pagination :total="properties?.total" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="properties__pagination" /> -->
+        <Pagination :total="100" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="properties-sale__pagination" />
       </div>
     </div>
   </div>
@@ -57,32 +57,51 @@ const properties = computed(() => {
     {
       id: 1,
       icon: "/img/apartments/flat1.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      location: "Dubai , Al Barsha , Al Barsha Villas",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 2,
       icon: "/img/apartments/flat2.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 3,
       icon: "/img/apartments/flat3.jpeg",
-      price: 1000,
+      price: 7701298,
       beds: 7,
       baths: 7,
       area: 26204,
-      title: "Apartments in DownTown",
-      type: "Sale"
+      title: "Unique 1-Bedroom Property for Sale in UAE",
+      type: "Sale",
+      description: `Overlooking the Dubai Canal and Burj Khalifa,
+        this 5-bed penthouse close to Dubai Opera is part of
+        Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences,
+        where ancient science, modern technology and world-class architecture combines.
+        This continues into the master bedroom with a walk-in closet, as well as a spacious terrace
+        with dining and seating areas — a green oasis floating in the air.`
     },
     {
       id: 4,
@@ -137,6 +156,10 @@ const properties = computed(() => {
   ]
 })
 
+
+const changePage = (newPage: number) => {
+  currentPage.value = newPage
+}
 // const queryString = computed(() => {
 //   const params = new URLSearchParams()
 //   for (const [key, value] of Object.entries(filters.value)) {
@@ -208,21 +231,18 @@ watch(() => route.query, () => {
 </script>
 
 <style lang="scss">
-.properties {
-  background: var(--color-quaternary);
-
-  &__container {
-
-  }
+.properties-sale {
+  background: var(--color-black);
 
   &__search-form {
     width: max-content;
   }
 
   &__header {
-    padding-top: clamp(1rem, 0.299rem + 2.8758vw, 3.75rem);
+    padding-top: clamp(0.5rem, 0.299rem + 1.8758vw, 2.15rem);
     padding-bottom: clamp(1.5rem, 0.9902rem + 2.0915vw, 3.5rem);
     color: var(--color-white);
+    padding-inline: 3rem;
   }
 
   &__title {
@@ -432,20 +452,17 @@ watch(() => route.query, () => {
     padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 3.5rem);
     padding-bottom: clamp(2.5rem, 2.2451rem + 1.0458vw, 3.5rem);
     color: var(--color-black);
-    background: var(--color-tertiary);
+    background: var(--color-white);
   }
 
   &__list {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%; 
     gap: 2rem;
     color: var(--color-white);
-
-    .property-card,
-    .property-card__person {
-      border-color: rgba(var(--color-black-grb), 0.2);
-    }
+    padding: 0 2rem;
   }
 
   &__pagination {

@@ -7,7 +7,7 @@
       </option>
     </select>
 
-    <Icon name="chevron-down" class="dropdown__icon" width="32" height="32" />
+    <Icon name="chevron-down" class="dropdown__icon" color="black" width="32" height="32" />
   </div>
 </template>
 
