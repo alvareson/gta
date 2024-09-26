@@ -1,52 +1,49 @@
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <nav class="footer__menu">
-          <!-- <ul class="footer__menu-items">
-            <li
-              class="footer__menu-item"
-              :class="[
-                item.social ? 'footer__menu-item--social' : 'footer__menu-item--list',
-                { 'footer__menu-item--expanded': expandedSection === item.title },
-              ]"
-              v-for="item in menu"
-              :key="item.title"
-            >
-              <p class="footer__menu-title">{{ item.title }}</p>
-              <button class="footer__menu-arrow" type="button" @click="toggleSection(item.title)">
-                <Icon class="footer__menu-arrow-icon" name="chevron-down" />
-              </button>
-              <ul class="footer__menu-list" :class="{ 'footer__menu-list--social': item.social }">
-                <li v-for="subItem in item.items" :key="subItem.name">
-                  <AppLink class="footer__menu-link" :to="subItem.path" :aria-label="subItem.icon && subItem.name">
-                    <Icon v-if="subItem.icon" :name="subItem.icon" />
-                    <template v-else>{{ subItem.name }}</template>
-                  </AppLink>
-                </li>
-              </ul>
-            </li>
-          </ul> -->
-        </nav>
-        <section class="contact-us-footer">
-          <div class="contact-us-footer__container">
-            <h2 class="contact-us-footer__title text-h2">Schedule Your Private Consultation</h2>
-            <button class="contact-us-footer__btn" type="button">
-              <span class="contact-us-footer__icon">
-                <Icon class="contact-us-footer__phone" name="phone" width="32" height="32" />
-              </span>
-              Contact us
-            </button>
-          </div>
-          <!-- <Dialog :component="ContactUsDialog" :open="isContactUsOpen" @close="isContactUsOpen = false" /> -->
-        </section>
-        <svg class="footer__logo" width="248" height="248">
-          <use xlink:href="/img/logos.svg#logo" />
+  <div class="footer">
+    <div class="footer__social">
+      <div class="social-icons">
+        <img src="/public/img/inst-logo.png" alt="Instagram" class="social-icon">
+        <img src="/public/img/facebook-logo.png" alt="Facebook" class="social-icon">
+      </div>
+    </div>
+    <div class="footer__contact">
+      <h1 class="footer__contact__title">Your Private Consultation ></h1>
+      <div class="custom-shape-container">
+        <svg
+          class="custom-shape"
+          width="140"
+          height="140"
+          viewBox="0 0 140 140"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="initial-path"
+            d="M46.9111 0V18.8288H18.826V47H0V16.8341L21.5392 0H46.9111Z"
+            fill="#CAEE5A"
+          />
+          <path
+            class="second-path"
+            d="M24.8213 47V28.1712H52.905V0H71.7324V30.1659L50.1932 47H24.8213Z"
+            fill="#CAEE5A"
+          />
+          <path
+            class="third-path"
+            d="M63.8889 57.3889C61.2606 57.3889 58.7167 56.9667 56.3522 56.1856C55.6239 55.9533 54.79 56.1222 54.2094 56.7028L49.565 61.3578C43.5771 58.3077 38.7074 53.4417 35.6528 47.4561L40.2972 42.7906C40.8778 42.21 41.0467 41.3761 40.8144 40.6478C40.0333 38.2833 39.6111 35.7394 39.6111 33.1111C39.6111 31.9394 38.6717 31 37.5 31H30.1111C29.5512 31 29.0142 31.2224 28.6183 31.6183C28.2224 32.0142 28 32.5512 28 33.1111C28 52.9344 44.0656 69 63.8889 69C65.0606 69 66 68.0606 66 66.8889V59.5C66 58.3283 65.0606 57.3889 63.8889 57.3889ZM47 31V52.1111L53.3333 45.7778H66V31H47Z"
+            fill="#CAEE5A"
+          />
         </svg>
       </div>
-      <p class="footer__copyright">© GTA {{ new Date().getFullYear() }}</p>
+      <!-- <Dialog :component="ContactUsDialog" :open="isContactUsOpen" @close="isContactUsOpen = false" /> -->
     </div>
-  </footer>
+    <div class="footer__logo">
+      <img
+        class="footer__img"
+        src="/img/logo-footer.png"
+        alt="Footer Logo"
+      />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -55,253 +52,107 @@
 
 <style lang="scss">
 .footer {
-  padding-block: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2rem 3rem;
+  background: var(--color-black);
+  color: var(--color-tertiary);
   font-size: 0.875rem;
   line-height: 1.71;
-  color: var(--color-tertiary);
-  background: var(--color-quaternary);
+  clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
 
-  @media (max-width: 47.9375rem) {
-    padding-block: 2.5rem 2.5rem;
-  }
-
-  .container {
-    --container-width: 75.25rem;
-  }
-
-  &__top {
+  &__social {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 2rem;
+    align-items: flex-end;
 
-    @media (max-width: 47.9375rem) {
-      margin-bottom: 2.5rem;
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .social-icon {
+        width: 4rem;
+        height: 4rem;
+      }
     }
   }
 
-  &__menu {
-    flex-grow: 0.4;
-    flex-shrink: 0;
-    padding-top: 3rem;
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-    @media (max-width: 63.9375rem) {
-      flex-basis: 100%;
-    }
-
-    @media (max-width: 47.9375rem) {
-      margin-bottom: 2.5rem;
-      padding-top: 0;
-    }
-
-    &-items {
-      display: flex;
-      gap: 5rem;
-
-      @media (max-width: 63.9375rem) {
-        gap: 2rem;
-      }
-
-      @media (max-width: 47.9375rem) {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-      }
-    }
-
-    &-item {
-      position: relative;
-      font-size: 1.1rem;
-
-      @media (max-width: 63.9375rem) {
-        flex-grow: 1;
-      }
-
-      @media (max-width: 47.9375rem) {
-        width: min(21.375rem, 100%);
-      }
-
-      &--list {
-        @media (max-width: 47.9375rem) {
-          border-bottom: 0.0625rem solid rgba(var(--color-secondary-rgb), 0.3);
-        }
-      }
-
-      &--social {
-        @media (max-width: 47.9375rem) {
-          width: fit-content;
-          margin-top: 1.5rem;
-          text-align: center;
-          justify-content: center;
-        }
-      }
-    }
-
-    &-title {
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: var(--color-white);
-      text-transform: uppercase;
-      letter-spacing: 0.175rem;
-      font-size: 1.4rem;
-
-      @media (max-width: 47.9375rem) {
-        .footer__menu-item--list & {
-          margin-bottom: 0.9375rem;
-        }
-
-        .footer__menu-item--social & {
-          margin-bottom: 1rem;
-        }
-      }
-    }
-
-    &-arrow {
-      display: none;
-
-      @media (max-width: 47.9375rem) {
-        .footer__menu-item--list & {
-          position: absolute;
-          inset: -0.5rem 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          height: 2.5rem;
-          color: var(--color-secondary);
-        }
-      }
-    }
-
-    &-arrow-icon {
-      transition: transform 0.25s;
-
-      @media (max-width: 47.9375rem) {
-        .footer__menu-item--expanded & {
-          transform: rotate(180deg);
-        }
-      }
-    }
-
-    &-list {
-      display: grid;
-      gap: 1rem;
-
-      @media (max-width: 47.9375rem) {
-        .footer__menu-item--list & {
-          display: none;
-        }
-
-        .footer__menu-item--expanded & {
-          display: grid;
-          margin-bottom: 1rem;
-        }
-
-        .footer__menu-item--social & {
-          gap: 2.5rem;
-        }
-      }
-
-      &--social {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    &-link {
-      &:hover {
-        text-decoration: underline var(--color-secondary);
-        text-underline-offset: 0.375rem;
-      }
+    &__title {
+      font-size: 3rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
     }
   }
 
   &__logo {
-    color: var(--color-secondary);
-    margin-left: 4rem;
-  }
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 
-  &__copyright {
-    @media (max-width: 63.9375rem) {
-      text-align: center;
+    .footer__img {
+      width: 164px;
+      height: 164px;
     }
   }
+}
+.custom-shape-container {
+  position: relative;
+  padding-top: 2rem;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-  .contact-us-footer {
-    display: grid;
-    place-items: center;
-    height: 19rem;
-    color: var(--color-tertiary);
-    text-align: center;
-    background: var(--color-quaternary);
+.custom-shape {
+  height: 19rem;
+  width: 50rem;
+}
 
-    &__container {
-      display: grid;
-      gap: 1rem;
-      place-items: center;
-    }
+.initial-path {
+  transform: scale(1.2);
+}
 
-    &__title {
-      line-height: 1.5;
-      font-size: 1.6rem;
-    }
+.second-path {
+  transition: transform 1s ease;
+  transform: translate(0, 0) scale(1.2);
+}
 
-    &__btn {
-      display: grid;
-      gap: 1.625rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 1.14;
-      text-transform: uppercase;
-      letter-spacing: 0.175rem;
-    }
+.third-path {
+  transform: translate(0, 0) scale(1.2);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+}
 
-    &__icon {
-      display: grid;
-      place-items: center;
-      width: 7rem;
-      height: 7rem;
+/* hover state */
+.custom-shape-container:hover .second-path {
+  transform: translate(24%, 43%) scale(1.2);
+}
 
-      &::before,
-      &::after {
-        grid-area: 1 / -1;
-        width: var(--size);
-        height: var(--size);
-        content: "";
-        border: 0.0625rem solid var(--color-white);
-        transform: rotate(45deg);
-      }
+.custom-shape-container:hover .third-path {
+  transform: translate(10%, 40%) scale(1.2);
+  opacity: 1;
+  pointer-events: auto;
+}
 
-      &::before {
-        --size: 5rem;
-        opacity: 0.2;
-        transition: transform 0.3s;
+.custom-shape-container:hover .third-path {
+  transform: translate(1px, 1px) scale(1.2);
+}
 
-        .contact-us__btn:hover & {
-          transform: rotate(-45deg);
-        }
-      }
-
-      &::after {
-        --size: 3.5rem;
-        transition: transform 0.3s;
-
-        .contact-us__btn:hover & {
-          transform: rotate(135deg);
-        }
-      }
-    }
-
-    &__phone {
-      grid-area: 1 / -1;
-      transition: transform 0.3s;
-
-      .contact-us__btn:hover & {
-        transform: scale(1.3);
-      }
-    }
-  }
+.second-path,
+.third-path {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 </style>
