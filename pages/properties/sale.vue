@@ -1,21 +1,14 @@
 <template>
   <div class="properties">
-    <header class="properties__header">
-      <div class="container">
-        <h1 class="properties__title text-h2">Sale</h1>
+    <div class="properties__container">
+      <header class="properties__header">
+        <h1 class="properties__title text-h2">Properties For Sale ></h1>
         <SearchForm class="properties__search-form" />
-      </div>
-    </header>
-    <div class="properties__body">
-      <div class="container">
-        <!-- <div v-if="properties?.data && properties?.data.length > 0" class="properties__cards">
-          <template v-for="property in properties.data" :key="properties.data.id">
-            <PropertyCard :property="property" :broker="findBrokerById(property.broker.id)" />
-          </template>
-        </div> -->
-        <div v-if="properties && properties.length > 0" class="properties__cards">
+      </header>
+      <div class="properties__body">
+        <div v-if="properties && properties.length > 0" class="properties__list">
           <template v-for="property in properties" :key="properties.id">
-            <PropertyCard :property="property" />
+            <PropertyListItem :property="property" />
           </template>
         </div>
         <!-- <Pagination :total="properties?.total" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="properties__pagination" /> -->
@@ -218,8 +211,8 @@ watch(() => route.query, () => {
 .properties {
   background: var(--color-quaternary);
 
-  .container {
-    --container-width: 106.5rem;
+  &__container {
+
   }
 
   &__search-form {
@@ -442,11 +435,11 @@ watch(() => route.query, () => {
     background: var(--color-tertiary);
   }
 
-  &__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: clamp(1rem, 0.6176rem + 1.5686vw, 2.5rem);
-
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    gap: 2rem;
     color: var(--color-white);
 
     .property-card,
