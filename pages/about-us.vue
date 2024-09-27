@@ -9,7 +9,7 @@
     <div class="about-us-page__body">
       <section class="about-us-page__section">
         <div class="about-us-page__text">
-          <h2>ELITE CONNECTIONS, EXPERT INSIGHT</h2>
+          <h2>Elite connections, Expert insight</h2>
           <p>
             GTA Realty has over two decades of experience and brings unique expertise to the table, particularly in our seamless collaboration with international partners. We offer a curated selection of luxury properties coupled with unparalleled service. Our team of specifically selected experts ensures expert guidance every step of the way. At GTA Realty, we excel in the prime and super-prime real estate market, leveraging our global network to consistently deliver exceptional service. Each member of our team contributes their wealth of expertise and skills, fostering collaboration and synergy to ensure our clients' success. Additionally, we maintain exclusive and privileged contacts with developers, enhancing our ability to secure the finest properties for our clients.            
           </p>
@@ -23,21 +23,10 @@
           <img src="/img/aboutus2.jpg" alt="On-Demand and On-Location" />
         </div>
         <div class="about-us-page__text">
-          <h2>ON-DEMAND AND ON-LOCATION</h2>
+          <h2>On-Demand and On-Location</h2>
           <p>
             As a key player in the luxury real estate industry worldwide, MG Partners is dedicated to providing tailor-made services across the globe, utilizing our exclusive network to offer a personalized touch to every endeavor. Our commitment to each client ensures top-tier guidance and recommendations to facilitate optimal property choices. Leveraging cutting-edge marketing strategies and advanced technology, we ensure your luxury property stands out prominently, attracting the most relevant buyers.
           </p>
-        </div>
-      </section>
-      <section class="about-us-page__section">
-        <div class="about-us-page__text">
-          <h2>PROUD HERITAGE</h2>
-          <p>
-            As a part of the globally renowned MG brand, MG Partners upholds an unparalleled reputation for excellence. Our unique heritage guarantees clients that they are collaborating with a reliable partner capable of delivering top-tier exposure and unparalleled service.
-          </p>
-        </div>
-        <div class="about-us-page__image">
-          <img src="/img/aboutus3.jpg" alt="Proud Heritage" />
         </div>
       </section>
       <section class="about-us-page__section">
@@ -45,15 +34,15 @@
           <img src="/img/aboutus4.jpg" alt="Enhancing Value" />
         </div>
         <div class="about-us-page__text">
-          <h2>ENHANCING VALUE THROUGH EXEMPLARY STANDARDS</h2>
+          <h2>Enhancing Value Through Exemplary Standards</h2>
           <p>
             Wherever you may be, the MG Partners team possesses the skill to actualize your aspirations within the sphere of luxury real estate. Beyond their extensive proficiency in local and global residential sales, our experts can provide support across diverse domains such as rentals, property management, new development sales, investment, and portfolio management. At MG Partners, we advocate for a distinctive perspective on luxury real estate—one that places the client at the core of all our endeavors.
           </p>
         </div>
       </section>
-      <footer class="about-us-page__footer">
-        <p>OUR LEGACY. OUR TRADITION. YOUR BENEFIT.</p>
-      </footer>
+    </div>
+    <div class="about-us-page__footer">
+      <p>OUR LEGACY. OUR TRADITION. YOUR BENEFIT.</p>
     </div>
   </div>
 </template>
@@ -102,18 +91,18 @@ onUnmounted(() => {
   &__header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     margin-bottom: 2rem;
     background: var(--color-white);
+    padding-inline: 2rem;
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
     color: var(--color-black);
-    font-weight: 500;
     letter-spacing: 0.2rem;
-    text-align: center;
+    text-align: left;
 
     @media (max-width: 835px) {
       font-size: 1.4rem;
@@ -125,11 +114,10 @@ onUnmounted(() => {
   }
 
   &__subtitle {
-    text-align: center;
-    font-size: 1.2rem;
+    text-align: left;
+    font-size: 1.4rem;
     color: var(--color-black);
-    width: 74rem;
-    margin: 0 auto;
+    max-width: 88rem;
 
     @media (max-width: 1356px) and (min-width: 769px) {
       width: 100%;
@@ -147,6 +135,7 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-inline: 2rem;
   }
 
   &__section {
@@ -185,6 +174,18 @@ onUnmounted(() => {
       .about-us-page__image {
         animation: none;
       }
+
+      .about-us-page__text {
+        clip-path: polygon(0 55px, 55px 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:last-child {
+      .about-us-page__text {
+        > h2 {
+          max-width: 40rem;
+        }
+      }
     }
   }
 
@@ -192,7 +193,7 @@ onUnmounted(() => {
     background-color: var(--color-black);
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
     padding-bottom: 2rem;
     color: var(--color-white);
     opacity: 0;
@@ -214,6 +215,9 @@ onUnmounted(() => {
 
     &.even {
       transform: translateX(100%);
+      > h2 {
+        text-align: center;
+      }
     }
 
     &.slide-in {
@@ -222,10 +226,10 @@ onUnmounted(() => {
     }
 
     h2 {
-      font-size: 2.3rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.2rem;
+      margin-left: 1rem;
+      letter-spacing: 0.02rem;
 
       @media (max-width: 1356px) and (min-width: 769px) {
         font-size: 1.8rem;
@@ -237,7 +241,9 @@ onUnmounted(() => {
     }
 
     p {
-      font-size: 1.43rem;
+      font-size: 1.86rem;
+      max-width: max-content;
+      letter-spacing: .04rem;
 
       @media (max-width: 1356px) and (min-width: 769px) {
         font-size: 1.1rem;
@@ -256,8 +262,8 @@ onUnmounted(() => {
     img {
       width: 100%;
       height: auto;
-      max-width: 1000px;
-      max-height: 1000px;
+      max-width: 1800px;
+      max-height: 1800px;
       object-fit: cover;
     }
 
