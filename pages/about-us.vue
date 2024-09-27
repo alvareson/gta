@@ -1,9 +1,9 @@
 <template>
   <div class="about-us-page">
     <header class="about-us-page__header">
-      <h1 class="about-us-page__title">MG PARTNERS : YOUR TRUSTWORTHY PARTNER</h1>
+      <h1 class="about-us-page__title">GTA Realty : Your Trustwothy Partner</h1>
       <p class="about-us-page__subtitle">
-        At MG Partners, we’re synonymous with reliability and trustworthiness in real estate. Our commitment is steadfast: to keep you informed, whether it’s about promising opportunities or potential pitfalls. Just as the industry’s best, we pride ourselves on being a beacon of reliability. With a keen eye for discerning the best deals and a dedication to transparency, we ensure that every step of your real estate journey is guided by integrity.
+        At GTA Realty, we're synonymous with reliability and trustworthiness in real estate. Our commitment is steadfast: to keep you informed, whether it's about promising opportunities or potential pitfalls. Just as the industry's best, we pride ourselves on being a beacon of reliability. With a keen eye for discerning the best deals and a dedication to transparency, we ensure that every step of your real estate journey is guided by integrity.
       </p>
     </header>
     <div class="about-us-page__body">
@@ -11,7 +11,7 @@
         <div class="about-us-page__text">
           <h2>ELITE CONNECTIONS, EXPERT INSIGHT</h2>
           <p>
-            MG Partners has over two decades of experience and brings unique expertise to the table, particularly in our seamless collaboration with international partners. We offer a curated selection of luxury properties coupled with unparalleled service. Our team of specifically selected experts ensures expert guidance every step of the way. At MG Partners, we excel in the prime and super-prime real estate market, leveraging our global network to consistently deliver exceptional service. Each member of our team contributes their wealth of expertise and skills, fostering collaboration and synergy to ensure our clients' success. Additionally, we maintain exclusive and privileged contacts with developers, enhancing our ability to secure the finest properties for our clients.
+            GTA Realty has over two decades of experience and brings unique expertise to the table, particularly in our seamless collaboration with international partners. We offer a curated selection of luxury properties coupled with unparalleled service. Our team of specifically selected experts ensures expert guidance every step of the way. At GTA Realty, we excel in the prime and super-prime real estate market, leveraging our global network to consistently deliver exceptional service. Each member of our team contributes their wealth of expertise and skills, fostering collaboration and synergy to ensure our clients' success. Additionally, we maintain exclusive and privileged contacts with developers, enhancing our ability to secure the finest properties for our clients.            
           </p>
         </div>
         <div class="about-us-page__image">
@@ -59,13 +59,45 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
 
+let observer: IntersectionObserver | null = null
+
+onMounted(() => {
+  const options = {
+    root: null,
+    rootMargin: '-20% 0px',
+    threshold: 0
+  }
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('slide-in')
+      } else {
+        entry.target.classList.remove('slide-in')
+      }
+    })
+  }, options)
+
+  document.querySelectorAll('.about-us-page__text').forEach((section, index) => {
+    section.classList.add(index % 2 === 0 ? 'odd' : 'even')
+    observer!.observe(section)
+  })
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
 
 <style lang="scss">
 .about-us-page {
   background: var(--color-white);
   padding: 2rem;
+  overflow-x: hidden;
 
   &__header {
     display: flex;
@@ -78,15 +110,37 @@
   &__title {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--color-quaternary);
+    color: var(--color-black);
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-align: center;
+
+    @media (max-width: 835px) {
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 836px) and (max-width: 1356px) {
+      font-size: 1.8rem;
+    }
   }
 
   &__subtitle {
     text-align: center;
-    font-size: 1.1rem;
-    color: var(--color-quaternary);
-    width: 70rem;
+    font-size: 1.2rem;
+    color: var(--color-black);
+    width: 74rem;
     margin: 0 auto;
+
+    @media (max-width: 1356px) and (min-width: 769px) {
+      width: 100%;
+      padding: 0 1rem;
+      font-size: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0 1rem;
+    }
   }
 
   &__body {
@@ -99,48 +153,148 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    max-width: 1200px;
+    opacity: 1;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
 
     &:nth-child(odd) {
       .about-us-page__text {
         order: 1;
+        background-color: var(--color-black);
       }
       .about-us-page__image {
         order: 2;
       }
     }
+
+    &:nth-child(even) {
+      .about-us-page__text {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        padding-top: 2rem;
+      }
+      .about-us-page__image {
+        animation: slideInLeft 1s forwards;
+      }
+    }
+
+    &:first-child {
+      .about-us-page__text,
+      .about-us-page__image {
+        animation: none;
+      }
+    }
   }
 
   &__text {
-    background-color: var(--color-quaternary);
-    padding: 2rem;
+    background-color: var(--color-black);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     color: var(--color-white);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    will-change: transform, opacity;
+
+    @media (max-width: 1356px) and (min-width: 769px) {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    &.odd {
+      transform: translateX(-100%);
+    }
+
+    &.even {
+      transform: translateX(100%);
+    }
+
+    &.slide-in {
+      transform: translateX(0);
+      opacity: 1;
+    }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 2.3rem;
       margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+
+      @media (max-width: 1356px) and (min-width: 769px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.43rem;
+
+      @media (max-width: 1356px) and (min-width: 769px) {
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
   }
 
   &__image {
     display: flex;
     justify-content: center;
-    
+
     img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
+      max-width: 1000px;
+      max-height: 1000px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    @media (min-width: 769px) and (max-width: 1356px) {
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
     }
   }
 
   &__footer {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--color-black);
-    margin-top: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-weight: 500;
+    letter-spacing: 0.4rem;
+
+    @media (max-width: 1356px) and (min-width: 769px) {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
   }
 }
 </style>
