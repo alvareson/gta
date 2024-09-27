@@ -117,26 +117,26 @@ onUnmounted(() => {
 <style lang="scss">
 .contact-us {
   background: var(--color-white);
-  padding: 2rem;
+  padding: 3rem;
   overflow-x: hidden;
   
   &__header {
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     background: var(--color-white);
-    padding-inline: 2rem;
+    padding-inline: 3rem;
   }
 
   &__title {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
+    font-size: 3.6rem;
+    margin-bottom: 1.5rem;
     color: var(--color-black);
     text-align: left;
 
     @media (max-width: 835px) {
-      font-size: 1.4rem;
+      font-size: 2.1rem;
     }
 
     @media (min-width: 836px) and (max-width: 1356px) {
@@ -146,14 +146,14 @@ onUnmounted(() => {
 
   &__subtitle {
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 2.1rem;
     color: var(--color-black);
-    max-width: 88rem;
+    max-width: 132rem;
 
     @media (max-width: 1356px) and (min-width: 769px) {
       width: 100%;
-      padding: 0 1rem;
-      font-size: 1rem;
+      padding: 0 1.5rem;
+      font-size: 1.5rem;
     }
     
     @media (max-width: 768px) {
@@ -166,7 +166,7 @@ onUnmounted(() => {
     clip-path: polygon(0 55px, 55px 0, 100% 0, 100% 100%, 0 100%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
     width: 100%;
     background: var(--color-black);
 
@@ -181,9 +181,9 @@ onUnmounted(() => {
 
   &__form-section,
   &__info-section {
-    padding: 2rem;
+    padding: 3rem;
     color: var(--color-white);
-    padding-left: 4rem;
+    padding-left: 6rem;
 
     opacity: 0;
     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
@@ -210,14 +210,14 @@ onUnmounted(() => {
   }
 
   &__info-section {
-    padding-left: 8rem;
+    padding-left: 12rem;
     @media (max-width: 765px) {
-      padding-left: 2rem;
+      padding-left: 3rem;
     }
   }
 
   &__info-title {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     @media (max-width: 765px) {
       padding-left: 0;
     }
@@ -225,20 +225,20 @@ onUnmounted(() => {
 
   &__form-title,
   &__info-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 
   &__form-description {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 26rem;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    max-width: 39rem;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   &__form-group {
@@ -247,19 +247,19 @@ onUnmounted(() => {
   }
 
   &__form-group label {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
     color: var(--color-white);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15rem;
   }
 
   &__form-group input {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    font-size: 1rem;
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+    font-size: 1.5rem;
     border: none;
-    border-bottom: 1px solid var(--color-secondary);
+    border-bottom: 1.5px solid var(--color-secondary);
     background: transparent;
     color: var(--color-white);
   }
@@ -277,32 +277,32 @@ onUnmounted(() => {
 
   &__bold-text {
     font-weight: bold;
-    margin: 0.8rem 0;
+    margin: 1.2rem 0;
   }
 
   &__phone,
   &__email,
   &__social {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   &__form-footer p {
-    font-size: 0.75rem;
+    font-size: 1.125rem;
   }
 
   &__form-footer button {
-    padding: 0.75rem .1rem;
+    padding: 1.125rem .15rem;
     color: var(--color-white);
     border: none;
     cursor: pointer;
   }
 
   &__info-content {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   &__info-content p {
-    margin: 0.2rem 0;
+    margin: 0.3rem 0;
   }
 
   &__social-media {
@@ -347,11 +347,11 @@ onUnmounted(() => {
     gap: 1.25rem;
     align-items: center;
     margin-left: auto;
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.33;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.225rem;
 
     @media (max-width: 1180px) {
       margin-top: 1rem;
