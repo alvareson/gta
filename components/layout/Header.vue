@@ -52,12 +52,12 @@ const menuItems = [
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 7rem;
+  height: 9rem;
   background-color: black;
 
   &__logo {
-    width: 214px;
-    height: 86px;
+    width: 284px;
+    height: 106px;
     margin-left: 2rem;
     margin-bottom: 1rem;
 
@@ -74,7 +74,7 @@ const menuItems = [
     ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 10px;
       margin: 0;
       padding: 0;
 
@@ -82,7 +82,7 @@ const menuItems = [
         a {
           color: white;
           text-decoration: none;
-          font-size: 2.5rem;
+          font-size: 3rem;
         }
       }
     }

@@ -1,15 +1,16 @@
 <template>
   <div class="contact-us">
     <header class="contact-us__header">
-      <h1 class="contact-us__title">CONNECT WITH US</h1>
+      <h1 class="contact-us__title">Connect With Us</h1>
       <p class="contact-us__subtitle">
         Experience exceptional service with GTA Realty. Known for our reliability, expertise, and honesty, we redefine the real estate experience. Our unparalleled attention to detail sets us apart as industry leaders. Trust us to guide you through buying or selling your home on a level unmatched by any other.
       </p>
     </header>
     <div class="contact-us__body">
       <div class="contact-us__container">
+
         <div class="contact-us__form-section">
-          <h2 class="contact-us__form-title">GET IN TOUCH</h2>
+          <h2 class="contact-us__form-title">Get In Touch</h2>
           <p class="contact-us__form-description">
             Kindly complete the form below, and your message will promptly reach the appropriate department and staff member. You can expect a response within the next 24 hours.
           </p>
@@ -43,8 +44,9 @@
             </div>
           </form>
         </div>
+
         <div class="contact-us__info-section">
-          <h2 class="contact-us__info-title">CONTACTS</h2>
+          <h2 class="contact-us__info-title">Contacts</h2>
           <address class="contact-us__info-content">
             <p class="contact-us__bold-text">Head Office & Retail</p>
             <p>Office 1203</p>
@@ -68,6 +70,7 @@
             </div>
           </address>
         </div>
+
         <div class="contact-us__image-section">
           <img src="/img/image2.jpg" alt="Contact Image" />
         </div>
@@ -120,40 +123,47 @@ onUnmounted(() => {
   &__header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     margin-bottom: 2rem;
     background: var(--color-white);
+    padding-inline: 2rem;
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
     color: var(--color-black);
-    justify-content: center;
-    text-align: center;
+    text-align: left;
+
+    @media (max-width: 835px) {
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 836px) and (max-width: 1356px) {
+      font-size: 1.8rem;
+    }
   }
 
   &__subtitle {
-    text-align: center;
-    font-size: 1.1rem;
+    text-align: left;
+    font-size: 1.4rem;
     color: var(--color-black);
-    max-width: 70rem;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
-  }
+    max-width: 88rem;
 
-  &__body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    opacity: 1;
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    transition-delay: 0.5s;
+    @media (max-width: 1356px) and (min-width: 769px) {
+      width: 100%;
+      padding: 0 1rem;
+      font-size: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0 1rem;
+    }
   }
 
   &__container {
+    clip-path: polygon(0 55px, 55px 0, 100% 0, 100% 100%, 0 100%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
@@ -173,17 +183,18 @@ onUnmounted(() => {
   &__info-section {
     padding: 2rem;
     color: var(--color-white);
+    padding-left: 4rem;
 
     opacity: 0;
     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
     will-change: transform, opacity;
 
-    &.odd {
-      transform: translateX(-100%);
-      @media (max-width: 765px) {
-        order: 2;
-      }
-    }
+    // &.odd {
+    //   transform: translateX(-100%);
+    //   @media (max-width: 765px) {
+    //     order: 2;
+    //   }
+    // }
 
     &.even {
       transform: translateX(100%);
