@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, toRef } from "vue"
+import { ref, toRef } from "vue"
 import type { Broker } from "~/utils/types"
 import { apiCall, formatData, MINDALL_CRM_SETTINGS } from "~/utils/generateLead"
 

@@ -80,9 +80,37 @@ const menuItems = [
 
       li {
         a {
-          color: white;
+          position: relative;
+          color: var(--color-white);
           text-decoration: none;
           font-size: 3rem;
+          padding: 0.5rem 0;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0%;
+            bottom: 100%;
+            transform: translateY(-50px);
+            width: 30px;
+            height: 34px;
+            background-color: var(--color-lemon);
+            clip-path: polygon(
+              50% 100%,
+              100% 60%,
+              100% 0%,
+              0% 0%,
+              0% 60%
+            );
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+          }
+
+          &:hover::after,
+          &:focus::after {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
       }
     }
