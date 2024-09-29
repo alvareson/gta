@@ -1,25 +1,25 @@
 <template>
   <div class="contact-agent">
     <header class="contact-agent__header">
-      <img class="contact-agent__avatar" src="/img/brokerRichard.jpg" width="80" height="80" alt="" />
-      <p class="contact-agent__caption">Contact agent</p>
+      <img class="contact-agent__avatar" src="/img/alikoko.png" width="80" height="80" alt="" />
+      <p class="contact-agent__caption text-h3">Contact agent</p>
       <p class="contact-agent__name text-h3">{{ broker?.firstName }} {{ broker?.lastName }}</p>
     </header>
     <form class="contact-agent__form" @submit.prevent="onSubmit">
-      <input v-model="formData.firstname" class="contact-agent__input" type="text" placeholder="Firstname" required />
-      <input v-model="formData.lastname" class="contact-agent__input" type="text" placeholder="Lastname" required />
+      <input v-model="formData.firstname" class="contact-agent__input" type="text" placeholder="Enter full name here" required />
+      <input v-model="formData.lastname" class="contact-agent__input" type="text" placeholder="Enter email here" required />
       <input
         v-model="formData.email"
         class="contact-agent__input"
         type="email"
-        placeholder="Email"
+        placeholder="Enter phone number ( international format ) "
         required
       />
       <p class="contact-agent__form-error" v-if="formErrors.email">{{ formErrors.email }}</p>
       <input
         class="contact-agent__input"
         type="tel"
-        placeholder="Phone Number"
+        placeholder="Your Message"
         v-model="formData.phone"
         required
         inputmode="numeric"
@@ -27,7 +27,14 @@
       />
       <p class="contact-agent__form-error" v-if="formErrors.phone" >{{ formErrors.phone }}</p>
       <textarea v-model="formData.notes" class="contact-agent__input" placeholder="Your Message" rows="6"></textarea>
-      <Btn class="contact-agent__submit" submit>Submit</Btn>
+      <div class="contact-agent__icons-and-submit">
+        <div class="contact-agent__icons">
+          <img src="/img/phone.png" alt="Phone" class="contact-agent__icon" />
+          <img src="/img/email.png" alt="Email" class="contact-agent__icon" />
+          <img src="/img/whatsapp.png" alt="WhatsApp" class="contact-agent__icon" />
+        </div>
+        <Btn class="contact-agent__submit" submit>submit</Btn>
+      </div>
     </form>
   </div>
 </template>
@@ -106,6 +113,8 @@ const onSubmit = async () => {
   color: var(--color-black);
   background: var(--color-white);
 
+  clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px);
+
   &__header {
     display: grid;
     grid-template: repeat(2, auto) / auto 1fr;
@@ -122,16 +131,14 @@ const onSubmit = async () => {
 
   &__avatar {
     grid-row: 1 / -1;
-    border-radius: 50%;
   }
 
   &__caption {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 2.2rem;
   }
 
   &__name {
+    font-size: 2.2rem;
     grid-column: 2;
   }
 
@@ -166,8 +173,27 @@ const onSubmit = async () => {
     }
   }
 
-  &__submit.btn {
+  &__icons-and-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  &__submit {
+    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+    justify-self: flex-end;
     background: var(--color-black);
+    font-size: 1.8rem;
   }
 }
 </style>

@@ -48,16 +48,16 @@
         </div>
       </div>
 
-      <div class="property__bottom container">
+      <div class="property__bottom">
         <div class="property__content">
           <div v-if="property.description?.generic && property.description?.generic[0]" class="property__description">
-            <h2 class="property__subtitle text-h3">Description</h2>
+            <h2 class="property__subtitle text-h1">Description</h2>
             <div class="property__description-text">
               <p v-if="property?.description" class="property__text" v-thtml="formatterPropertyInfo(property?.description, 'text')" />
             </div>
           </div>
           <div v-if="amenitiesWithIcons && amenitiesWithIcons.length > 0" class="property__features" ref="featuresRef">
-            <h2 class="property__subtitle text-h3">Features</h2>
+            <h2 class="property__subtitle text-h1">Features</h2>
             <ul class="property__features-list">
               <li class="property__features-item" v-for="{ name, icon } in amenitiesWithIcons" :key="name">
                 <Icon :name="icon" color="white" /> {{ name }}
@@ -77,7 +77,7 @@
             </iframe>
           </div>
           <div class="property__location">
-            <h2 class="property__subtitle text-h3">Location</h2>
+            <h2 class="property__subtitle text-h1 ">Location</h2>
             <div v-if="property.location" class="property__location-wrapper">
               <p>{{ handleAddress(property.location) }}</p>
               <button class="property__location-google-maps" type="button" @click="openInGoogleMaps">See on Google Maps</button>
@@ -131,8 +131,8 @@ const neighborhood = ref({
 })
 
 const broker = ref({
-  firstName: "Richard",
-  lastName: "Barnett"
+  firstName: "Ali",
+  lastName: "Coco"
 })
 
 const amenitiesWithIcons = computed(() => {
@@ -223,7 +223,10 @@ const property = ref({
           language: 'english',
           title: 'PREMIUM AND SPACIOUS | FURNISHED | HIGH FLOOR',
           text: 
-            '<p>Our company presents this amazing 2-bedroom apartment for rent in Business Bay. Apartments in DAMAC Maison Bay’s Edge offer a world of luxurious amenities and services along with breathtaking views.</p><p>The tower consists of 24 floors above ground.  The property offers stunning balcony views and is easily accessible on Sheikh Zayed Road and Business Bay Metro. </p><p>The apartment benefits from a large living room/bedroom area allowing for an airy feel and plenty of natural light directly from the sun—the best Property to buy in Dubai. </p><br><p><strong>Property Details:</strong> </p><p>- Fully Furnished </p><p>- BUA: 1254.53 sqft</p><p> - 2 Bedroom</p><p> - 3 Bathroom </p><p>- Living / Dining Area </p><p>- Fully Fitted Kitchen </p><p>- Open Plan</p><p> - Built-in Wardrobes</p><p> - Balcony </p>'
+            `<p>Overlooking the Dubai Canal and Burj Khalifa, this 5-bed penthouse close to Dubai Opera is part of Eywa — a boutique building by established developer R.Evolution with 48 exclusive residences, where ancient science, modern technology and world-class architecture combines.</p>
+          <p>Strikingly unique, Eywa subscribes to wild luxury, instantly evoking a glorious tree of life. Its biophilic architecture, which carries forward into the penthouse, is inspired by the sacred banyan tree. Totaling 15,834 sq. ft., this unique penthouse with Burj Khalifa view is the pinnacle of luxury.</p>
+          <p>Its spacious design features carefully crafted spaces with stunning floor-to-ceiling windows. The living room is divided into a sitting area with a fireplace, music listening area, dining area and private wine cellar. The regal luxury of natural stones and wood provide sophistication, with materials like Irish green marble and White Onyx.</p>
+          <p>This continues into the master bedroom with a walk-in closet, as well as a spacious terrace with dining and seating areas — a green oasis floating in the air.</p>`
         }
       ],
       website: null,
@@ -587,6 +590,7 @@ const property = ref({
 
   &__text {
     margin-top: 40px;
+    font-size: 1.6rem;
   }
 
   &__header {
@@ -809,7 +813,6 @@ const property = ref({
     gap: 2rem;
     align-items: flex-start;
     justify-content: space-between;
-    padding-left: 4rem;
 
     @media (max-width: 63.9375rem) {
       display: block;
@@ -818,11 +821,11 @@ const property = ref({
 
   &__content {
     flex: 1;
-    max-width: 49.75rem;
+    margin-left: 4rem;
   }
 
   &__description {
-    max-width: 47rem;
+    max-width: 80rem;
     margin-bottom: clamp(5rem, 3.7255rem + 5.2288vw, 10rem);
 
     p {
@@ -844,7 +847,6 @@ const property = ref({
   &__subtitle {
     margin-bottom: 2rem;
     line-height: 1.25;
-    text-transform: uppercase;
 
     @media (max-width: 47.9375rem) {
       margin-bottom: 1rem;
@@ -865,6 +867,7 @@ const property = ref({
       gap: 1.5rem;
       align-items: center;
       padding-top: 1.5rem;
+      font-size: 1.6rem;
 
       &:nth-child(n + 10) {
         display: none;
@@ -879,6 +882,7 @@ const property = ref({
       margin-top: 2.5rem;
       font-weight: 500;
       text-decoration: underline;
+      font-size: 1.6rem;
 
       @media (max-width: 47.9375rem) {
         margin-top: 1.5rem;
@@ -896,6 +900,7 @@ const property = ref({
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
       margin-bottom: 2rem;
+      font-size: 1.4rem;
 
       @media (max-width: 47.9375rem) {
         margin-bottom: 1.5rem;
@@ -911,9 +916,9 @@ const property = ref({
   &__contact-agent {
     position: sticky;
     top: 10.5rem;
-    width: clamp(25rem, 40vw, 33.5rem);
+    width: clamp(32rem, 60vw, 44.5rem);
     z-index: 999;
-    margin-right: 5%;
+    margin-right: 3%;
 
     @media (max-width: 63.9375rem) {
       margin-top: 15px;

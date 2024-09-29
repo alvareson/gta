@@ -9,7 +9,8 @@ export const formatPrice = (price, currency: string = "AED", withTrailing = fals
     currency,
     minimumFractionDigits: withTrailing ? 2 : 0,
   })
-  return formatter.format(price)?.replace(/\./g, ",")
+  return formatter.format(price)?.replace(/\./g, "'")
+
 }
 
 export const isValueInDistrictEnum = (value: string, filterValue: string): boolean => {
@@ -53,9 +54,6 @@ export const handleAddress = (location: PropertyLocation) => {
 }
 
 export const handlePrice = (pricing: PropertyPricing, dealType: string) => {
-  console.log(pricing);
-  console.log(dealType);
-  
   if (dealType === DealTypesEnum.rent) {
     return `${formatPrice(pricing.price.rentPerYear)} / year`
   } else {

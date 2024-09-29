@@ -31,7 +31,6 @@ const typeValue = computed(() => (submit.value ? "submit" : "button"))
   font-weight: 500;
   color: var(--color-white);
   text-align: center;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   background: var(--color-secondary);
 }
