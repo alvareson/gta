@@ -23,7 +23,7 @@
         </Swiper>
         <div class="new-developments__arrows">
           <button class="new-developments__arrow" type="button" ref="prev" aria-label="Previous property">
-            <Icon name="chevron-left" :width="38" :height="38" :strokeWidth="1.1" />
+            <Icon name="chevron-left" :width="48" :height="48" :strokeWidth="1.1" />
           </button>
           <div class="new-developments__number">
             {{ activeSlide }}
@@ -31,7 +31,7 @@
             {{ totalSlides }}
           </div>
           <button class="new-developments__arrow" type="button" ref="next" aria-label="Next property">
-            <Icon name="chevron-right" :width="38" :height="38" :strokeWidth="1.1" />
+            <Icon name="chevron-right" :width="48" :height="48" :strokeWidth="1.1" />
           </button>
         </div>
       </div>
@@ -173,7 +173,7 @@ onMounted(() => {
   margin-bottom: 2rem;
 
   &__container {
-    padding-left: 3rem;
+    padding-left: 2rem;
 
     @media (max-width: 63.9375rem) {
       --padding-inline: 1.5rem;
@@ -184,7 +184,7 @@ onMounted(() => {
     display: flex;
     gap: 1rem 2rem;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     font-size: 2rem;
 
     @media (max-width: 75rem) {
@@ -225,8 +225,8 @@ onMounted(() => {
   &__slide {
     display: flex;
     flex-direction: column;
-    max-width: 1120px;
-    max-height: 580px;
+    max-width: 920px;
+    max-height: 520px;
 
     @media (max-width: 34rem) {
       width: 12.5rem;
@@ -255,12 +255,12 @@ onMounted(() => {
 
   &__arrows {
     display: flex;
-    gap: .8rem;
+    gap: .6rem;
     align-items: center;
     align-self: flex-end;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-right: 3rem;
+    margin-right: 2.2rem;
     justify-content: flex-end;
     
     @media (max-width: 75rem) {

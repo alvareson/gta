@@ -83,7 +83,7 @@ const formatRentPrice = price => {
   &__type {
     position: absolute;
     padding: 0.5rem 1rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--color-white);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -139,8 +139,8 @@ const formatRentPrice = price => {
 
   &__info {
     font-size: 1.1rem;
-    font-weight: 600;
     line-height: 1.5;
+    color: var(--color-secondary);
 
     @media (max-width: 34rem) {
       font-size: 1.25rem;

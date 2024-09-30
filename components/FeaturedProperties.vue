@@ -23,7 +23,7 @@
         </Swiper>
         <div class="featured-properties__arrows">
           <button class="featured-properties__arrow" type="button" ref="prev" aria-label="Previous property">
-            <Icon name="chevron-left" :width="38" :height="38" :strokeWidth="1.1" style="margin-right: 4px;" />
+            <Icon name="chevron-left" :width="48" :height="48" :strokeWidth="1.1" style="margin-right: 4px;" />
           </button>
           <div class="featured-properties__number">
             {{ activeSlide }}
@@ -31,7 +31,7 @@
             {{ totalSlides }}
           </div>
           <button class="featured-properties__arrow" type="button" ref="next" aria-label="Next property">
-            <Icon name="chevron-right" :width="38" :height="38" :strokeWidth="1.1" style="margin-left: 4px;" />
+            <Icon name="chevron-right" :width="48" :height="48" :strokeWidth="1.1" style="margin-left: 4px;" />
           </button>
         </div>
       </div>
@@ -187,7 +187,7 @@ onMounted(() => {
   background: var(--color-white);
 
   &__container {
-    padding-inline: 3rem;
+    padding-inline: 2rem;
 
     @media (max-width: 63.9375rem) {
       --padding-inline: 1.5rem;
@@ -199,7 +199,7 @@ onMounted(() => {
     gap: 1rem 2rem;
     justify-content: space-between;
     margin-bottom: 4rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 
     @media (max-width: 75rem) {
       flex-direction: column;
@@ -237,7 +237,7 @@ onMounted(() => {
   }
 
   &__slide {
-    max-width: 31rem;
+    max-width: 24rem;
     height: auto;
 
     @media (max-width: 34rem) {
@@ -263,7 +263,7 @@ onMounted(() => {
 
   &__card {
     height: 100%;
-    width: 31rem;
+    width: 27rem;
 
     .property-card__img {
       @media (max-width: 34rem) {
@@ -280,7 +280,7 @@ onMounted(() => {
 
   &__arrows {
     display: flex;
-    gap: .1rem;
+    gap: 0rem;
     align-items: center;
     align-self: flex-end;
     margin-top: 1rem;

@@ -241,7 +241,7 @@ onUnmounted(() => {
     }
 
     p {
-      font-size: 1.86rem;
+      font-size: 1.66rem;
       max-width: max-content;
       letter-spacing: .04rem;
 
@@ -262,8 +262,8 @@ onUnmounted(() => {
     img {
       width: 100%;
       height: auto;
-      max-width: 1800px;
-      max-height: 1800px;
+      max-width: 1400px;
+      max-height: 1400px;
       object-fit: cover;
     }
 

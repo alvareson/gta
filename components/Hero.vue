@@ -24,14 +24,14 @@
 
 .hero {
   position: relative;
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 7rem);
   overflow: hidden;
 
   &__container {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 3rem;
+    padding: 2rem;
     box-sizing: border-box;
     z-index: 3;
   }
@@ -60,8 +60,8 @@
   &__text {
     position: absolute;
     bottom: 1rem;
-    left: 3rem;
-    font-size: 2rem;
+    left: 2rem;
+    font-size: 1.8rem;
     color: var(--color-white);
   }
 }

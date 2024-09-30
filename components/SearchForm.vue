@@ -88,7 +88,7 @@ const onSearch = () => {
     display: flex;
     align-items: center;
     background: var(--color-black);
-    padding: 2rem;
+    padding: 1.4rem;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
   }
@@ -109,11 +109,11 @@ const onSearch = () => {
     cursor: pointer;
     background-color: var(--color-white);
     color: var(--color-black);
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 0.25rem;
     border: 1px solid #c4c4c4;
     width: 12rem;
-    height: 2.45rem;
+    height: 2.25rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;

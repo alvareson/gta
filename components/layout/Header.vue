@@ -52,12 +52,12 @@ const menuItems = [
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 9rem;
+  height: 7rem;
   background-color: black;
 
   &__logo {
-    width: 284px;
-    height: 106px;
+    width: 224px;
+    height: 86px;
     margin-left: 2rem;
     margin-bottom: 1rem;
 
@@ -83,7 +83,7 @@ const menuItems = [
           position: relative;
           color: var(--color-white);
           text-decoration: none;
-          font-size: 3rem;
+          font-size: 2.4rem;
           padding: 0.5rem 0;
 
           &::after {
@@ -92,8 +92,8 @@ const menuItems = [
             left: 0%;
             bottom: 100%;
             transform: translateY(-50px);
-            width: 30px;
-            height: 34px;
+            width: 24px;
+            height: 30px;
             background-color: var(--color-lemon);
             clip-path: polygon(
               50% 100%,

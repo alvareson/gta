@@ -55,7 +55,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
   background: var(--color-black);
   color: var(--color-tertiary);
   font-size: 0.875rem;
@@ -86,9 +86,9 @@
     text-align: center;
 
     &__title {
-      font-size: 3rem;
+      font-size: 2.6rem;
       line-height: 1.5;
-      margin-bottom: 1rem;
+      margin-bottom: .2rem;
     }
   }
 
@@ -98,16 +98,16 @@
     align-items: flex-end;
 
     .footer__img {
-      width: 164px;
-      height: 164px;
+      width: 114px;
+      height: 114px;
     }
   }
 }
 .custom-shape-container {
   position: relative;
   padding-top: 2rem;
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
