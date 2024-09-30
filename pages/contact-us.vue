@@ -1,9 +1,9 @@
 <template>
   <div class="contact-us">
     <header class="contact-us__header">
-      <h1 class="contact-us__title">Connect With Us</h1>
+      <h1 class="contact-us__title text-h2">Connect With Us</h1>
       <p class="contact-us__subtitle">
-        Experience exceptional service with GTA Realty. Known for our reliability, expertise, and honesty, we redefine the real estate experience. Our unparalleled attention to detail sets us apart as industry leaders. Trust us to guide you through buying or selling your home on a level unmatched by any other.
+        Connect with GTA Realty for an unparalleled real estate experience! Our dedicated team combines reliability, expertise, and honesty to redefine the way you buy or sell your home. 
       </p>
     </header>
     <div class="contact-us__body">
@@ -12,35 +12,30 @@
         <div class="contact-us__form-section">
           <h2 class="contact-us__form-title">Get In Touch</h2>
           <p class="contact-us__form-description">
-            Kindly complete the form below, and your message will promptly reach the appropriate department and staff member. You can expect a response within the next 24 hours.
+            Please fill out the form below, and your message will be directed to the right department and team member.
           </p>
           <form class="contact-us__form">
             <div class="contact-us__form-group">
-              <label for="first-name">YOUR FIRST NAME</label>
+              <label for="first-name">your first name</label>
               <input id="first-name" type="text" placeholder="Enter first name here" />
             </div>
             <div class="contact-us__form-group">
-              <label for="last-name">YOUR LAST NAME</label>
+              <label for="last-name">your last name</label>
               <input id="last-name" type="text" placeholder="Enter last name here" />
             </div>
             <div class="contact-us__form-group">
-              <label for="email">EMAIL ADDRESS</label>
+              <label for="email">email address</label>
               <input id="email" type="email" placeholder="Enter your email address" />
             </div>
             <div class="contact-us__form-group">
-              <label for="phone">PHONE</label>
+              <label for="phone">phone</label>
               <input id="phone" type="tel" placeholder="Enter your phone number (international format)" />
             </div>
             <div class="contact-us__form-footer">
               <p>
-                By clicking «Submit» you agree to our <a href="#">Privacy Policy</a>
+                By clicking «Submit» you agree to our <a href="#" style="text-decoration: underline;">Privacy Policy</a>
               </p>
-              <button class="contact-us__contact" type="button">
-                <span class="contact-us__contact-icon">
-                  <Icon class="contact-us__contact-arrow" name="arrow-right" width="58" height="6" />
-                </span>
-                <p class="contact-us__contact-title">Submit</p>
-              </button>
+              <Btn class="contact-us__submit">submit</Btn>
             </div>
           </form>
         </div>
@@ -48,24 +43,27 @@
         <div class="contact-us__info-section">
           <h2 class="contact-us__info-title">Contacts</h2>
           <address class="contact-us__info-content">
-            <p class="contact-us__bold-text">Head Office & Retail</p>
-            <p>Office 1203</p>
-            <p>Arenco Tower, Dubai Media City, Dubai, United Arab Emirates.</p>
+            <div class="contact-us__info-address">
+              <p class="semibold-text">Head Office & Retail</p>
+              <p>CEO Building</p>
+              <p>Unit 215</p>
+              <p>Investment Park</p>
+              <p>Dubai, </p>
+              <p>United Arab Emirates.</p>
+            </div>
             <div class="contact-us__phone">
-              <p class="contact-us__bold-text">Phone</p>
+              <p class="semibold-text">Phone</p>
               <p>+971 40 368 8080</p>
             </div>
             <div class="contact-us__email">
-              <p class="contact-us__bold-text">Email</p>
+              <p class="semibold-text">Email</p>
               <p>info@mgpartners.ae</p>
             </div>
             <div class="contact-us__social">
-              <p class="contact-us__bold-text">Social media</p>
+              <p class="semibold-text">Social media</p>
               <div class="contact-us__social-media">
                 <Icon name="facebook" width="31" height="24" />
                 <Icon name="instagram" width="31" height="24" />
-                <Icon name="x" width="31" height="24" />
-                <Icon name="linkedin" width="31" height="24" />
               </div>
             </div>
           </address>
@@ -117,8 +115,10 @@ onUnmounted(() => {
 <style lang="scss">
 .contact-us {
   background: var(--color-white);
-  padding: 3rem;
+  padding-top: 1rem;
+  padding-inline: 2rem;
   overflow-x: hidden;
+  padding: 3rem;
   
   &__header {
     display: flex;
@@ -126,12 +126,12 @@ onUnmounted(() => {
     align-items: left;
     margin-bottom: 3rem;
     background: var(--color-white);
-    padding-inline: 3rem;
+    padding-inline: 2rem;
   }
 
   &__title {
-    font-size: 3.6rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    margin-bottom: .6rem;
     color: var(--color-black);
     text-align: left;
 
@@ -146,9 +146,9 @@ onUnmounted(() => {
 
   &__subtitle {
     text-align: left;
-    font-size: 2.1rem;
+    font-size: 1.2rem;
     color: var(--color-black);
-    max-width: 132rem;
+    max-width: 78rem;
 
     @media (max-width: 1356px) and (min-width: 769px) {
       width: 100%;
@@ -166,7 +166,7 @@ onUnmounted(() => {
     clip-path: polygon(0 55px, 55px 0, 100% 0, 100% 100%, 0 100%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
     background: var(--color-black);
 
@@ -183,7 +183,7 @@ onUnmounted(() => {
   &__info-section {
     padding: 3rem;
     color: var(--color-white);
-    padding-left: 6rem;
+    padding-left: 4rem;
 
     opacity: 0;
     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
@@ -210,14 +210,13 @@ onUnmounted(() => {
   }
 
   &__info-section {
-    padding-left: 12rem;
+    padding-left: 10rem;
     @media (max-width: 765px) {
       padding-left: 3rem;
     }
   }
 
   &__info-title {
-    padding-left: 1.5rem;
     @media (max-width: 765px) {
       padding-left: 0;
     }
@@ -225,20 +224,20 @@ onUnmounted(() => {
 
   &__form-title,
   &__info-title {
-    font-size: 2.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
   }
 
   &__form-description {
-    font-size: 1.8rem;
-    margin-bottom: 3rem;
-    max-width: 39rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 26rem;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: .75rem;
   }
 
   &__form-group {
@@ -247,19 +246,18 @@ onUnmounted(() => {
   }
 
   &__form-group label {
-    margin-bottom: 0.75rem;
-    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
     color: var(--color-white);
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.075rem;
   }
 
   &__form-group input {
-    padding-top: 1.125rem;
-    padding-bottom: 1.125rem;
-    font-size: 1.5rem;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    font-size: 1.1rem;
     border: none;
-    border-bottom: 1.5px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-secondary);
     background: transparent;
     color: var(--color-white);
   }
@@ -268,6 +266,7 @@ onUnmounted(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2.8rem;
 
     @media (max-width: 1180px) {
       flex-direction: column;
@@ -275,34 +274,31 @@ onUnmounted(() => {
     }
   }
 
-  &__bold-text {
-    font-weight: bold;
-    margin: 1.2rem 0;
-  }
-
   &__phone,
   &__email,
   &__social {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 
   &__form-footer p {
-    font-size: 1.125rem;
+    font-size: .8rem;
+    max-width: 12rem;
+    color: var(--color-secondary);
   }
 
   &__form-footer button {
-    padding: 1.125rem .15rem;
-    color: var(--color-white);
+    font-size: 1.8rem;
+    justify-self: flex-end;
+    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+    padding: 1rem 2rem;
+    background: var(--color-white);
+    color: var(--color-black);
     border: none;
     cursor: pointer;
   }
 
   &__info-content {
-    font-size: 1.8rem;
-  }
-
-  &__info-content p {
-    margin: 0.3rem 0;
+    font-size: 1.3rem;
   }
 
   &__social-media {
@@ -342,16 +338,14 @@ onUnmounted(() => {
     opacity: .5;
   }
 
-  &__contact {
+  &__button {
     display: flex;
-    gap: 1.25rem;
+    gap: .755rem;
     align-items: center;
     margin-left: auto;
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.33;
-    text-transform: uppercase;
-    letter-spacing: 0.225rem;
+    font-size: 0.5rem;
+    line-height: 1;
+    letter-spacing: 0.2rem;
 
     @media (max-width: 1180px) {
       margin-top: 1rem;

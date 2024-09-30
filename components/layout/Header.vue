@@ -52,12 +52,12 @@ const menuItems = [
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 7rem;
+  height: 8rem;
   background-color: black;
 
   &__logo {
-    width: 224px;
-    height: 86px;
+    width: 240px;
+    height: 96px;
     margin-left: 2rem;
     margin-bottom: 1rem;
 
@@ -106,8 +106,7 @@ const menuItems = [
             transition: transform 0.3s ease, opacity 0.3s ease;
           }
 
-          &:hover::after,
-          &:focus::after {
+          &:hover::after {
             transform: translateY(0);
             opacity: 1;
           }
