@@ -2,7 +2,7 @@
   <div class="developments">
     <header class="developments__header">
       <div class="developments__container">
-        <h1 class="developments__title">Off Plan Properties ›</h1>
+        <h1 class="developments__title text-h2">Off Plan Properties ›</h1>
         <SearchbarLine class="developments__search-form" />
       </div>
     </header>
@@ -227,17 +227,17 @@ watch(() => route.query, () => {
   }
 
   &__header {
-    padding-inline: 3rem;
-    padding-top: clamp(1rem, 0.299rem + 2.8758vw, 3.75rem);
+    padding-top: clamp(0.5rem, 0.299rem + 1.8758vw, 1.15rem);
     padding-bottom: clamp(1.5rem, 0.9902rem + 2.0915vw, 3.5rem);
     color: var(--color-white);
+    padding-inline: 2rem;
   }
 
   &__title {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.45rem;
 
     @media (max-width: 47.9375rem) {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.05rem;
     }
   }
 
@@ -246,6 +246,7 @@ watch(() => route.query, () => {
     padding-bottom: clamp(2.5rem, 2.2451rem + 1.0458vw, 3.5rem);
     color: var(--color-black);
     background: var(--color-tertiary);
+    padding-inline: 3rem;
   }
 
   &__pagination {

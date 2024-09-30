@@ -95,7 +95,7 @@ const smallImages = ref<string[]>([
   grid-template-columns: 5fr 7fr;
   border: 2px solid var(--color-black);
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 1rem;
   background: var(--color-white);
   overflow: hidden;
   clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 80px), calc(100% - 70px) 100%, 0% 100%);
@@ -124,7 +124,6 @@ const smallImages = ref<string[]>([
   &__main-img-container {
     flex: 2;
     overflow: hidden;
-    border-radius: 8px;
   }
 
   &__main-img {
@@ -145,7 +144,6 @@ const smallImages = ref<string[]>([
     width: 100%;
     height: calc(50% - 0.25rem);
     object-fit: cover;
-    border-radius: 8px;
     display: block;
   }
 
@@ -158,7 +156,7 @@ const smallImages = ref<string[]>([
   }
 
   &__title {
-    font-size: 2.8rem;
+    font-size: 2rem;
     margin-bottom: 0.1rem;
     color: var(--color-black);
     letter-spacing: 0.09rem;
@@ -202,10 +200,8 @@ const smallImages = ref<string[]>([
   }
 
   &__price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    color: var(--color-secondary);
   }
 
   &__details-button {

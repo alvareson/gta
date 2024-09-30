@@ -65,7 +65,7 @@ const displayPrice = computed(() => {
   &__content {
     position: absolute;
     width: max-content;
-    top: 18%;
+    top: 22%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color-white);
@@ -79,7 +79,7 @@ const displayPrice = computed(() => {
 
 
   &__title {
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     font-weight: 700;
   }
 
@@ -93,7 +93,7 @@ const displayPrice = computed(() => {
   }
 
   &__data-item {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     &:not(:first-child) {
       &::before {
         content: "•";
@@ -103,7 +103,7 @@ const displayPrice = computed(() => {
   }
 
   &__price {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 700;
   }
 }

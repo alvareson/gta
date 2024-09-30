@@ -124,7 +124,7 @@ const onSearch = () => {
   }
 
   &__dropdown {
-    margin-right: 1rem;
+    margin-right: .8rem;
     flex: 1;
     width: 12rem;
   }
@@ -137,7 +137,7 @@ const onSearch = () => {
     border-radius: 0.25rem;
     border: 1px solid #c4c4c4;
     width: 12rem;
-    height: 2.45rem;
+    height: 2.29rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;
@@ -145,6 +145,5 @@ const onSearch = () => {
     padding-left: 1rem;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
   }
-
 }
 </style>

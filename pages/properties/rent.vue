@@ -238,32 +238,28 @@ watch(() => route.query, () => {
 .properties-rent {
   background: var(--color-black);
 
-  &__container {
-    // You can add container-specific styles here if needed
-  }
-
   &__search-form {
     width: max-content;
   }
 
   &__header {
-    padding-top: clamp(0.5rem, 0.299rem + 1.8758vw, 2.15rem);
+    padding-top: clamp(0.5rem, 0.299rem + 1.8758vw, 1.15rem);
     padding-bottom: clamp(1.5rem, 0.9902rem + 2.0915vw, 3.5rem);
     color: var(--color-white);
-    padding-inline: 3rem;
+    padding-inline: 2rem;
   }
 
   &__title {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.45rem;
 
     @media (max-width: 47.9375rem) {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.05rem;
     }
   }
 
 
   &__body {
-    padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 3.5rem);
+    padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 1.5rem);
     padding-bottom: clamp(2.5rem, 2.2451rem + 1.0458vw, 3.5rem);
     color: var(--color-black);
     background: var(--color-white);
