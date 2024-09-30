@@ -18,24 +18,31 @@
             </h1>
             <h2>{{ formatterPropertyInfo(property.description, "title") }}</h2>
           </header>
-          <div class="property__data">
-            <div v-if="property.pricing && property.general.dealType" class="property__price">
-              {{ handlePrice(property.pricing, property.general.dealType) }}
+          <div class="property__info">
+            <div class="property__data">
+              <div v-if="property.pricing && property.general.dealType" class="property__price">
+                {{ handlePrice(property.pricing, property.general.dealType) }}
+              </div>
+              <ul v-if="property.specific" class="property__data-items">
+                <li v-if="property?.specific.bedrooms" class="property__data-item">
+                  <Icon name="bed" width="28" height="28" color="black" />
+                  {{ `${property?.specific.bedrooms} bedrooms` }}
+                </li>
+                <li v-if="property?.specific.bathrooms" class="property__data-item">
+                  <Icon name="bath" width="34" height="34" />
+                  {{ `${property?.specific.bathrooms} bathrooms` }}
+                </li>
+                <li v-if="property?.specific.areas.habitable && measurement" class="property__data-item">
+                  <Icon name="square" width="23" height="23" />
+                  {{ property?.specific.areas.habitable }} {{ measurement }}
+                </li>
+              </ul>
             </div>
-            <ul v-if="property.specific" class="property__data-items">
-              <li v-if="property?.specific.bedrooms" class="property__data-item">
-                <Icon name="bed" width="28" height="28" color="black" />
-                {{ `${property?.specific.bedrooms} bedrooms` }}
-              </li>
-              <li v-if="property?.specific.bathrooms" class="property__data-item">
-                <Icon name="bath" width="34" height="34" />
-                {{ `${property?.specific.bathrooms} bathrooms` }}
-              </li>
-              <li v-if="property?.specific.areas.habitable && measurement" class="property__data-item">
-                <Icon name="square" width="23" height="23" />
-                {{ property?.specific.areas.habitable }} {{ measurement }}
-              </li>
-            </ul>
+            <div class="property__qrcode">
+              <p class="property__permit-number">DLD permit number</p>
+              <p class="property__permit-number">73036462828</p>
+              <img src="/img/qrcode.png" alt="QR Code" class="property__qrcode-image" />
+            </div>
           </div>
         </div>
         <div class="property__image">
@@ -694,6 +701,11 @@ const property = ref({
     text-decoration: underline;
   }
 
+  &__info {
+    display: flex;
+    flex-direction: row;
+  }
+
   &__data {
     display: grid;
     gap: 0.75rem;
@@ -740,6 +752,25 @@ const property = ref({
 
   &__price {
     font-size: 2.8rem;
+  }
+
+  &__qrcode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__permit-number {
+    margin-left: 4rem;
+    color: var(--color-black);
+  }
+
+  &__qrcode-image {
+    padding-top: 1rem;
+    margin-left: 4rem;
+    width: 120px;
+    height: auto;
   }
 
   &__image {
