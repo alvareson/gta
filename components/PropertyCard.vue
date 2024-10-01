@@ -68,6 +68,11 @@ const formatRentPrice = price => {
 
   &:hover {
     border-color: var(--color-white);
+
+    .property-card__type {
+      color: var(--color-black);
+      background: var(--color-lemon);
+    }
   }
 
   &__img {
@@ -85,10 +90,10 @@ const formatRentPrice = price => {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     color: var(--color-white);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     background: var(--color-black);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 15px) 100%, 0 100%);
+    transition: color 0.3s, background 0.3s;
 
     @media (max-width: 34rem) {
       font-size: 0.875rem;
