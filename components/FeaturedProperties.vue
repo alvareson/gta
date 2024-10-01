@@ -223,7 +223,7 @@ onMounted(() => {
   }
 
   &__swiper {
-    overflow: visible;
+    overflow: visible !important;
     opacity: 0;
     transform: translateY(-50px);
     transition: opacity 4s, transform 4s;
