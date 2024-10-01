@@ -73,12 +73,18 @@ const formatRentPrice = price => {
       color: var(--color-black);
       background: var(--color-lemon);
     }
+
+    .property-card__img {
+      filter: brightness(100%);
+    }
   }
 
   &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(92%);
+    transition: filter 0.3s;
 
     @media (max-width: 47.9375rem) {
       aspect-ratio: auto;
