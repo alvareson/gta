@@ -185,7 +185,6 @@ onMounted(() => {
 
 <style lang="scss">
 .featured-properties {
-  overflow: hidden;
   color: var(--color-white);
   background: var(--color-white);
 
