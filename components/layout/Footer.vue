@@ -2,8 +2,20 @@
   <div class="footer">
     <div class="footer__social">
       <div class="social-icons">
-        <img src="/public/img/inst-logo.png" alt="Instagram" class="social-icon">
-        <img src="/public/img/facebook-logo.png" alt="Facebook" class="social-icon">
+        <img
+          :src="isInstagramHovered ? '/img/activated-inst.png' : '/img/inst-logo.png'"
+          alt="Instagram"
+          class="social-icon"
+          @mouseover="isInstagramHovered = true"
+          @mouseleave="isInstagramHovered = false"
+        />
+        <img
+          :src="isFacebookHovered ? '/img/activated-facebook.png' : '/img/facebook-logo.png'"
+          alt="Facebook"
+          class="social-icon"
+          @mouseover="isFacebookHovered = true"
+          @mouseleave="isFacebookHovered = false"
+        />
       </div>
     </div>
     <div class="footer__contact">
@@ -47,7 +59,8 @@
 </template>
 
 <script setup lang="ts">
-
+const isInstagramHovered = ref(false)
+const isFacebookHovered = ref(false)
 </script>
 
 <style lang="scss">
@@ -74,6 +87,7 @@
       .social-icon {
         width: 4rem;
         height: 4rem;
+        cursor: pointer;
       }
     }
   }
