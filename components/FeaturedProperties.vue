@@ -18,7 +18,10 @@
           @slide-change="onSlideChange"
         >
 					<SwiperSlide class="featured-properties__slide" v-for="(apartment, index) in apartments" :key="index">
-            <PropertyCard :home-page-view="true" class="featured-properties__card" :property="apartment" />
+            <div class="featured-properties__card-wrapper">
+              <PropertyCard :home-page-view="true" class="featured-properties__card" :property="apartment" />
+              <div class="featured-properties__more-details">more details ></div>
+            </div>
           </SwiperSlide>
         </Swiper>
         <div class="featured-properties__arrows">
@@ -262,8 +265,7 @@ onMounted(() => {
   }
 
   &__card {
-    height: 100%;
-    width: 27rem;
+    transition: transform 0.3s;
 
     .property-card__img {
       @media (max-width: 34rem) {
@@ -276,6 +278,33 @@ onMounted(() => {
         display: none;
       }
     }
+  }
+
+  &__card-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      .featured-properties__card {
+        transform: translateY(-1.4rem);
+      }
+      .featured-properties__more-details {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__more-details {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: left;
+    color: var(--color-black);
+    font-size: 1.4rem;
   }
 
   &__arrows {
