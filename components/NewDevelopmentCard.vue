@@ -52,12 +52,33 @@ const displayPrice = computed(() => {
     position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.25) 25%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      mix-blend-mode: multiply;
+      transition: opacity 0.4s ease-in-out;
+    }
 
     &:hover {
       .new-development-card__more-details {
         opacity: 1;
         transform: translate(-50%, -12.8rem);
+      }
+      &::before {
+        opacity: 0;
       }
     }
   }
@@ -85,7 +106,7 @@ const displayPrice = computed(() => {
     left: 50%;
     transform: translate(-50%, 0);
     opacity: 0;
-    transition: opacity 0.6s, transform 0.6s ease-in-out;
+    transition: opacity 0.4s, transform 0.4s ease-in-out;
     color: var(--color-white);
     font-size: 1.8rem;
     text-align: center;
