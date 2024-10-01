@@ -53,7 +53,7 @@ const menuItems = [
   justify-content: space-between;
   align-items: flex-end;
   height: 8rem;
-  background-color: black;
+  background-color: var(--color-black);
 
   &__logo {
     width: 240px;
@@ -136,7 +136,7 @@ const menuItems = [
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: var(--color-black);
     padding: 2rem;
     z-index: 1000;
 

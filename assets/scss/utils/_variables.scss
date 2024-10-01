@@ -3,7 +3,7 @@
 // prettier-ignore
 $colors: (
   "white"     : ( "hex": #ffffff, "display-p3": 1 1 1 ),
-  "black"     : ( "hex": #000000, "display-p3": 0 0 0 ),
+  "black"     : ( "hex": #111111, "display-p3": 0.0667 0.0667 0.0667 ),
   "secondary" : ( "hex": #bbb0a1, "display-p3": 0.7259 0.6917 0.6378 ),
   "tertiary"  : ( "hex": #fef8ee, "display-p3": 0.992 0.9733 0.9374 ),
   "quaternary": ( "hex": #1e517b, "display-p3": 0.1729 0.3133 0.4691 ), 
@@ -12,14 +12,14 @@ $colors: (
 
 :root {
   --color-white: #ffffff;
-  --color-black: #000000;
+  --color-black: #111111;
   --color-secondary: #bbb0a1;
   --color-tertiary: #fef8ee;
   --color-quaternary: rgb(30, 81, 123);
   --color-lemon: #caee5a;
 
   --color-white-rgb: 255, 255, 255;
-  --color-black-rgb: 40, 10, 11;
+  --color-black-rgb: 17, 17, 17;
   --color-secondary-rgb: 187, 176, 161;
   --color-quaternary-rgb: 30, 81, 123;
 }
