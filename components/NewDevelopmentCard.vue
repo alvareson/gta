@@ -14,6 +14,7 @@
           <li class="new-development-card__data-item">{{ property.baths }} baths</li>
         </ul>
       </div>
+      <div class="new-development-card__more-details">more details ></div>
     </div>
   </AppLink>
 </template>
@@ -44,16 +45,21 @@ const displayPrice = computed(() => {
   transition: border 0.25s;
   background-color: var(--color-quaternary);
   overflow: hidden;
+  position: relative;
 
-  &:hover {
-    border-color: var(--color-white);
-  }
 
   &__image-container {
     position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    &:hover {
+      .new-development-card__more-details {
+        opacity: 1;
+        transform: translate(-50%, -12.8rem);
+      }
+    }
   }
 
   &__img {
@@ -71,6 +77,19 @@ const displayPrice = computed(() => {
     color: var(--color-white);
     text-align: center;
     padding: 1rem;
+  }
+
+  &__more-details {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: opacity 0.6s, transform 0.6s ease-in-out;
+    color: var(--color-white);
+    font-size: 1.8rem;
+    text-align: center;
+    pointer-events: none;
   }
 
   &__type, &__title, &__data, &__price {
