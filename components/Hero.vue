@@ -7,9 +7,9 @@
       <video autoplay muted loop>
         <source src="/video/los-angeles.mp4" type="video/mp4" />
       </video>
-    </div>
-    <div class="hero__text">
-      <h1>Bring Life to Your Lifestyle</h1>
+      <div class="hero__text">
+        <h1>Bring Life to Your Lifestyle</h1>
+      </div>
     </div>
   </section>
 </template>
@@ -18,14 +18,18 @@
 </script>
 
 <style lang="scss" scoped>
-.hero-wrapper {
-  position: relative;
-}
-
 .hero {
   position: relative;
   height: calc(100vh - 8rem);
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    min-height: 30rem;
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 
   &__container {
     position: absolute;
@@ -63,12 +67,29 @@
     left: 2rem;
     font-size: 1.8rem;
     color: var(--color-white);
-  }
-}
 
-@media (max-width: 63.9375rem) {
-  .hero {
-    min-height: 30rem;
+    @media (max-width: 768px) {
+      position: relative;
+      right: 0;
+      top: 26rem;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      left: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 380px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 337px) {
+      font-size: .8rem;
+      justify-content: center;
+    }
   }
 }
 </style>

@@ -121,6 +121,10 @@ const onSearch = () => {
     display: flex;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 1540px) {
+      flex-direction: column;
+    }
   }
 
   &__dropdown {

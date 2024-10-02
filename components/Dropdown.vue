@@ -45,13 +45,10 @@ watch(value, (newValue: string) => {
     width: 100%;
     padding: 0.5rem;
     padding-right: 2.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid #c4c4c4;
     background-color: #fff;
     font-size: 1rem;
     cursor: pointer;
     font-size: 1rem;
-
     appearance: none;
   }
 

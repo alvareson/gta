@@ -82,13 +82,13 @@ const goToPage = n => {
       }
     }
 
-    &--prev {
-      padding-right: 2rem;
-    }
+    // &--prev {
+    //   padding-right: 2rem;
+    // }
 
-    &--next {
-      padding-left: 2rem;
-    }
+    // &--next {
+    //   padding-left: 2rem;
+    // }
   }
 }
 </style>

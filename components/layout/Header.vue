@@ -18,10 +18,19 @@
     </button>
 
     <div v-if="isMobileMenuOpen" class="layout-header__mobile-menu">
-      <button type="button" @click="onMobileMenuChange(false)">Close</button>
+      <Icon
+        class="layout-header__mobile-menu-close"
+        name="close"
+        width="40"
+        height="40"
+        color="white"
+        @click="onMobileMenuChange(false)"
+      />
       <ul>
         <li v-for="item in menuItems" :key="item.name">
-          <NuxtLink :to="item.to">{{ item.name }}</NuxtLink>
+          <NuxtLink :to="item.to" @click="onMobileMenuChange(false)">
+            {{ item.name }}
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -43,6 +52,18 @@ const menuItems = [
   { name: 'About Us', to: { name: 'about-us' } },
   { name: 'Contact Us', to: { name: 'contact-us' } },
 ]
+
+watch(isMobileMenuOpen, (newVal) => {
+  if (newVal) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})
+
+onBeforeUnmount(() => {
+  document.body.style.overflow = ''
+})
 </script>
 
 <style lang="scss" scoped>
@@ -55,6 +76,10 @@ const menuItems = [
   height: 8rem;
   background-color: var(--color-black);
 
+  @media (max-width: 1024px) {
+    height: 6rem;
+  }
+
   &__logo {
     width: 240px;
     height: 96px;
@@ -64,12 +89,32 @@ const menuItems = [
     img {
       height: 100%;
     }
+
+    @media (max-width: 1200px) {
+      width: 200px;
+      height: 90px;
+    }
+
+    @media (max-width: 1024px) {
+      width: 160px;
+      height: 70px;
+    }
+
+    @media (min-width: 767px) and (max-width: 1024px) {
+      width: 140px;
+      height: 60px;
+      margin-left: 1rem;
+    }
   }
 
   &__menu {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     margin-right: 2rem;
+
+    @media (max-width: 1024px) {
+      margin-right: 1.6rem;
+    }
 
     ul {
       list-style: none;
@@ -110,12 +155,30 @@ const menuItems = [
             transform: translateY(0);
             opacity: 1;
           }
+
+          @media (max-width: 1200px) {
+            font-size: 2.2rem;
+          }
+
+          @media (max-width: 1024px) {
+            font-size: 2rem;
+          }
+
+          @media (min-width: 767px) and (max-width: 1024px) {
+            font-size: 1.6rem;
+          }
         }
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       display: none;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      ul li a::after {
+        display: none;
+      }
     }
   }
 
@@ -125,13 +188,18 @@ const menuItems = [
     border: none;
     cursor: pointer;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       display: block;
+      padding: 1.5rem;
     }
   }
 
   &__mobile-menu {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -140,18 +208,16 @@ const menuItems = [
     padding: 2rem;
     z-index: 1000;
 
-    button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-bottom: 2rem;
+    &-close {
+      position: absolute;
+      top: 1.9rem;
+      right: 1.6rem;
     }
 
     ul {
       list-style: none;
       padding: 0;
+      text-align: center;
 
       li {
         margin-bottom: 1.5rem;
