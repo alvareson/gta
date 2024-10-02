@@ -105,23 +105,6 @@ const onSearch = () => {
     width: 12rem;
   }
 
-  &__search-btn {
-    cursor: pointer;
-    background-color: var(--color-white);
-    color: var(--color-black);
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid #c4c4c4;
-    width: 12rem;
-    height: 2.25rem;
-    margin-right: 1rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 1rem;
-    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-  }
-
   &__buttons {
     display: flex;
   }
@@ -147,6 +130,45 @@ const onSearch = () => {
   &__button-rent {
     background-color: var(--color-lemon);
     color: var(--color-black);
+  }
+
+  &__search-btn {
+    position: relative;
+    cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 1rem;
+    width: 12rem;
+    height: 2.25rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    transition: background-color 0.5s ease, color 0.5s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--color-lemon);
+      z-index: -1;
+      transition: width 0.5s ease;
+      clip-path: inherit;
+    }
+
+    &:hover {
+      color: var(--color-black);
+      background-color: var(--color-white);
+
+      &::before {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

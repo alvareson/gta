@@ -206,18 +206,37 @@ const smallImages = ref<string[]>([
 
   &__details-button {
     position: absolute;
+    display: inline-block; 
     font-size: 1.3rem;
     bottom: 2rem;
     right: 5rem;
-    padding: 0.35rem 1.5rem;
-    background-color: #000;
-    color: #fff;
+    padding: 0.1rem 2.2rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
     text-decoration: none;
-    transition: background-color 0.3s;
+    overflow: hidden;
+    transition: color 0.3s ease;
     clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--color-lemon);
+      z-index: -1;
+      transition: width 0.3s ease;
+      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
+    }
+
     &:hover {
-      background-color: #444;
+      color: var(--color-black);
+
+      &::before {
+        width: 100%;
+      }
     }
   }
 

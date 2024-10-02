@@ -130,20 +130,43 @@ const onSearch = () => {
   }
 
   &__search-btn {
+    position: relative;
     cursor: pointer;
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 1.2rem;
-    border-radius: 0.25rem;
-    border: 1px solid #c4c4c4;
+    overflow: hidden;
     width: 12rem;
-    height: 2.29rem;
+    height: 2.21rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 1rem;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    transition: background-color 0.5s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--color-lemon);
+      z-index: -1;
+      transition: width 0.5s ease;
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    }
+
+    &:hover {
+      color: var(--color-black);
+      background-color: var(--color-white);
+
+      &::before {
+        width: 100%;
+      }
+    }
   }
 }
 </style>
