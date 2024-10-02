@@ -27,7 +27,7 @@ const typeValue = computed(() => (submit.value ? "submit" : "button"))
 
 <style lang="scss">
 .btn {
-  padding: 1rem 3rem;
+  padding: .4rem 3rem;
   font-weight: 500;
   color: var(--color-white);
   text-align: center;

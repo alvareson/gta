@@ -187,6 +187,8 @@ onMounted(() => {
 .featured-properties {
   color: var(--color-white);
   background: var(--color-white);
+  overflow-x: hidden;
+  overflow-y: visible;
 
   &__container {
     padding-inline: 2rem;

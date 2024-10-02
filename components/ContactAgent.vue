@@ -29,10 +29,46 @@
       <textarea v-model="formData.notes" class="contact-agent__input" placeholder="Your Message" rows="6"></textarea>
       <div class="contact-agent__icons-and-submit">
         <div class="contact-agent__icons">
-          <img src="/img/phone.png" alt="Phone" class="contact-agent__icon" />
-          <img src="/img/email.png" alt="Email" class="contact-agent__icon" />
-          <img src="/img/whatsapp.png" alt="WhatsApp" class="contact-agent__icon" />
+          <div class="contact-agent__icon-container">
+            <img
+              src="/img/phone.png"
+              alt="Phone"
+              class="contact-agent__icon default-icon"
+            />
+            <img
+              src="/img/activated-phone.png"
+              alt="Activated Phone"
+              class="contact-agent__icon activated-icon"
+            />
+          </div>
+
+          <div class="contact-agent__icon-container">
+            <img
+              src="/img/email.png"
+              alt="Email"
+              class="contact-agent__icon default-icon"
+            />
+            <img
+              src="/img/activated-email.png"
+              alt="Activated Email"
+              class="contact-agent__icon activated-icon"
+            />
+          </div>
+
+          <div class="contact-agent__icon-container">
+            <img
+              src="/img/whatsapp.png"
+              alt="WhatsApp"
+              class="contact-agent__icon default-icon"
+            />
+            <img
+              src="/img/activated-whatsapp.png"
+              alt="Activated WhatsApp"
+              class="contact-agent__icon activated-icon"
+            />
+          </div>
         </div>
+
         <Btn class="contact-agent__submit" submit>submit</Btn>
       </div>
     </form>
@@ -40,11 +76,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRef } from "vue"
 import type { Broker } from "~/utils/types"
 import { apiCall, formatData, MINDALL_CRM_SETTINGS } from "~/utils/generateLead"
 
 const validationPhoneError = 'The provided phone number does not meet the required format. Please ensure that it contains at least 10 to 12 digits and includes the country code without the plus sign'
+const isPhoneHovered = ref(false)
+const isEmailHovered = ref(false)
+const isWhatsAppHovered = ref(false)
 
 const props = defineProps({
   broker: {
@@ -184,16 +222,43 @@ const onSubmit = async () => {
     gap: 1rem;
   }
 
-  &__icon {
+  &__icon-container {
+    position: relative;
     width: 62px;
     height: 62px;
+
+    &:hover .activated-icon {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .activated-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.75s ease;
+    cursor: pointer;
   }
 
   &__submit {
     clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
     justify-self: flex-end;
     background: var(--color-black);
-    font-size: 1.8rem;
+    color: var(--color-white);
+    font-size: 2rem;
+    transition: background 0.75s ease, color 0.75s ease;
+
+    &:hover {
+      background: var(--color-lemon);
+      color: var(--color-black);
+    }
   }
 }
 </style>
