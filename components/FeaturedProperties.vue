@@ -324,7 +324,7 @@ onMounted(() => {
     @media (max-width: 75rem) {
       z-index: 2;
       gap: 1rem;
-      margin-top: 0rem;
+      margin-top: 1rem;
     }
   }
 
