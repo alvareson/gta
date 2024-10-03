@@ -236,6 +236,11 @@ watch(() => route.query, () => {
 
   &__search-form {
     width: max-content;
+
+    @media (max-width: 508px) {
+      width: auto;
+      justify-content: center;
+    }
   }
 
   &__header {
@@ -247,6 +252,10 @@ watch(() => route.query, () => {
 
   &__title {
     margin-bottom: 1.45rem;
+
+    @media (max-width: 508px) {
+      text-align: center;
+    }
 
     @media (max-width: 47.9375rem) {
       margin-bottom: 1.05rem;

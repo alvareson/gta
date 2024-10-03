@@ -160,7 +160,7 @@ onBeforeUnmount(() => {
             font-size: 2.2rem;
           }
 
-          @media (max-width: 1024px) {
+          @media (max-width: 1025px) {
             font-size: 2rem;
           }
 

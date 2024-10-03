@@ -123,7 +123,18 @@ const onSearch = () => {
     width: 100%;
 
     @media (max-width: 1540px) {
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      justify-items: center;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 508px) {
+      grid-template-columns: 1fr;
     }
   }
 
