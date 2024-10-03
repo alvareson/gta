@@ -89,7 +89,7 @@
               <p>{{ handleAddress(property.location) }}</p>
               <button class="property__location-google-maps" type="button" @click="openInGoogleMaps">See on Google Maps</button>
             </div>
-            <img :src="localMap" width="740" height="320" alt="" />
+            <img class="property__map" :src="localMap" alt="" />
           </div>
         </div>
         <ContactAgent class="property__contact-agent" :broker="broker" :reference="property.reference" />
@@ -591,6 +591,7 @@ const property = ref({
 
       @media (max-width: 63.9375rem) {
         width: 100%;
+        padding-left: 0;
       }
     }
   }
@@ -686,6 +687,7 @@ const property = ref({
     font-size: 3.8rem;
 
     @media (max-width: 47.9375rem) {
+      font-size: 1.8rem;
       gap: 0.25rem;
       margin-bottom: 1rem;
     }
@@ -704,6 +706,18 @@ const property = ref({
   &__info {
     display: flex;
     flex-direction: row;
+
+    @media (min-width: 1024px) and (max-width: 1775px) {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 63.9375rem) {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
   }
 
   &__data {
@@ -725,12 +739,27 @@ const property = ref({
       flex-wrap: wrap;
       gap: 1rem;
       color: var(--color-black);
+
+      @media (min-width: 1024px) and (max-width: 1775px) {
+        justify-content: center;
+      }
+
+      @media (max-width: 63.9375rem) {
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
     }
 
     &-item {
       display: flex;
       gap: 0.5rem;
       align-items: center;
+
+      @media (max-width: 63.9375rem) {
+        text-align: center;
+        justify-content: center;
+        gap: 0;
+      }
 
       &:not(:first-child) {
         &::before {
@@ -739,12 +768,18 @@ const property = ref({
           margin-inline-end: 0.5rem;
           content: "";
           background: var(--color-white);
+
+          @media (max-width: 63.9375rem) {
+            margin-inline-end: 0;
+            width: 0;
+            margin-right: 1rem;
+          }
         }
       }
 
       svg {
-        @media (max-width: 47.9375rem) {
-          display: none;
+        @media (max-width: 63.9375rem) {
+          margin-right: 1.5rem;
         }
       }
     }
@@ -752,6 +787,10 @@ const property = ref({
 
   &__price {
     font-size: 2.8rem;
+
+    @media (max-width: 63.9375rem) {
+      font-size: 1.8rem;
+    }
   }
 
   &__qrcode {
@@ -759,16 +798,26 @@ const property = ref({
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 4rem;
+
+    @media (min-width: 1024px) and (max-width: 1775px) {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 1023px) {
+      margin-bottom: 2rem;
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
   }
 
   &__permit-number {
-    margin-left: 4rem;
     color: var(--color-black);
   }
 
   &__qrcode-image {
     padding-top: 1rem;
-    margin-left: 4rem;
     width: 120px;
     height: auto;
   }
@@ -845,7 +894,7 @@ const property = ref({
     align-items: flex-start;
     justify-content: space-between;
 
-    @media (max-width: 63.9375rem) {
+    @media (max-width: 1530px) {
       display: block;
     }
   }
@@ -853,6 +902,10 @@ const property = ref({
   &__content {
     flex: 1;
     margin-left: 4rem;
+
+    @media (max-width: 63.9375rem) {
+      margin-left: 1rem;
+    }
   }
 
   &__description {
@@ -861,9 +914,6 @@ const property = ref({
 
     p {
       color: var(--color-white) !important;
-    }
-    @media (max-width: 63.9375rem) {
-      display: none;
     }
 
     &-text {
@@ -942,6 +992,25 @@ const property = ref({
       font-weight: 500;
       text-decoration: underline;
     }
+
+    & .property__map {
+      width: 640px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+
+      @media (max-width: 47.9375rem) {
+        width: 100%;
+        max-width: 358px;
+        height: auto;
+      }
+
+      @media (max-width: 390px) {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+      }
+    }
   }
 
   &__contact-agent {
@@ -951,10 +1020,18 @@ const property = ref({
     z-index: 999;
     margin-right: 3%;
 
-    @media (max-width: 63.9375rem) {
-      margin-top: 15px;
+    @media (max-width: 1530px) {
+      top: 4rem;
       position: relative;
-      width: auto;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 540px) {
+      top: 4rem;
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
     }
   }
 

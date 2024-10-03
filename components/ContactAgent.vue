@@ -215,17 +215,30 @@ const onSubmit = async () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 540px) {
+      flex-direction: column;
+    }
   }
 
   &__icons {
     display: flex;
     gap: 1rem;
+
+    @media (max-width: 540px) {
+      order: 2;
+    }
   }
 
   &__icon-container {
     position: relative;
     width: 62px;
     height: 62px;
+
+    @media (max-width: 540px) {
+      width: 100%;
+      height: 100%;
+    }
 
     &:hover .activated-icon {
       opacity: 1;
@@ -258,6 +271,14 @@ const onSubmit = async () => {
     &:hover {
       background: var(--color-lemon);
       color: var(--color-black);
+    }
+
+    @media (max-width: 540px) {
+      clip-path: none;
+      font-size: 1rem;
+      border-radius: 0.4rem;
+      margin-bottom: 2rem;
+      order: 1;
     }
   }
 }
