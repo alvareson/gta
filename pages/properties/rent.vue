@@ -2,7 +2,7 @@
   <div class="properties-rent">
     <div class="properties-rent__container">
       <header class="properties-rent__header">
-        <h1 class="properties-rent__title text-h2">Properties For Rent ></h1>
+        <h1 class="properties-rent__title text-h2">Properties For Sale ></h1>
         <SearchbarLine class="properties-rent__search-form" />
       </header>
       <div class="properties-rent__body">
@@ -11,13 +11,7 @@
             <PropertyListItem :property="property" />
           </template>
         </div>
-        <Pagination
-          :total="100"
-          :page-size="pageSize"
-          :page="currentPage"
-          @update:page="changePage"
-          class="properties-rent__pagination"
-        />
+        <Pagination :total="100" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="properties-rent__pagination" />
       </div>
     </div>
   </div>
@@ -240,6 +234,11 @@ watch(() => route.query, () => {
 
   &__search-form {
     width: max-content;
+
+    @media (max-width: 508px) {
+      width: auto;
+      justify-content: center;
+    }
   }
 
   &__header {
@@ -252,11 +251,209 @@ watch(() => route.query, () => {
   &__title {
     margin-bottom: 1.45rem;
 
+    @media (max-width: 508px) {
+      text-align: center;
+    }
+
     @media (max-width: 47.9375rem) {
       margin-bottom: 1.05rem;
     }
   }
 
+  &__filter {
+    @media (max-width: 47.9375rem) {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      padding: 0 1rem 1rem;
+      overflow: auto;
+      color: var(--color-white);
+      background: var(--color-black);
+      transition: transform 0.4s ease-in-out;
+      transform: translateY(-100%);
+
+      &--open {
+        transform: translateY(0);
+      }
+    }
+
+    &-header {
+      display: none;
+
+      @media (max-width: 47.9375rem) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 6rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-logo {
+      display: grid;
+      place-content: center;
+      width: 6rem;
+      height: 6rem;
+
+      svg {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
+
+    &-close {
+      display: grid;
+      gap: 0.25rem;
+      place-items: center;
+      font-family: var(--font-family-alt);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    &-body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+
+      @media (max-width: 63.9375rem) {
+        gap: 1rem;
+      }
+
+      @media (max-width: 47.9375rem) {
+        flex-direction: column;
+        gap: 1rem;
+        width: min(22.375rem, 100%);
+        margin-inline: auto;
+      }
+    }
+  }
+
+  &__select {
+    position: relative;
+    width: 19rem;
+    height: 3.5rem;
+    // color: var(--color-quaternary);
+
+    @media (max-width: 63.9375rem) {
+      flex-grow: 1;
+      width: 14rem;
+    }
+
+    @media (max-width: 47.9375rem) {
+      width: 100%;
+    }
+
+    &-field {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding-inline: 1.5rem 3.25rem;
+      font-weight: 500;
+      color: inherit;
+      appearance: none;
+      background: none;
+      border: 0.0625rem solid var(--color-quinary);
+
+      &:focus {
+        outline: none;
+      }
+
+      option {
+        background: var(--color-black);
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      inset-inline-end: 1rem;
+      top: 1rem;
+      color: inherit;
+      pointer-events: none;
+    }
+  }
+
+  &__price {
+    display: flex;
+    border: 0.0625rem solid var(--color-quinary);
+
+    @media (max-width: 63.9375rem) {
+      flex-grow: 1;
+    }
+
+    @media (max-width: 47.9375rem) {
+      flex-direction: column;
+      gap: 1rem;
+      border: none;
+    }
+
+    &-field {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      max-width: 12.5rem;
+
+      @media (max-width: 63.9375rem) {
+        max-width: 100%;
+      }
+
+      @media (max-width: 47.9375rem) {
+        border: 0.0625rem solid var(--color-quinary);
+      }
+
+      &:not(:first-child) {
+        border-inline-start: 0.0625rem solid var(--color-quinary);
+      }
+    }
+
+    &-input {
+      width: 100%;
+      height: 3.5rem;
+      padding-inline: 1.5rem;
+      color: inherit;
+      background: none;
+      border: none;
+
+      &::placeholder {
+        color: var(--color-quaternary);
+        opacity: 1;
+      }
+
+      &::-webkit-inner-spin-button {
+        display: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-currency {
+      align-self: center;
+      padding-inline-end: 1.5rem;
+      color: var(--color-quaternary);
+    }
+  }
+
+  &__submit {
+    display: block;
+
+    @media (max-width: 47.9375rem) {
+      display: block;
+    }
+  }
+
+  &__toggle-filter {
+    display: none;
+
+    @media (max-width: 47.9375rem) {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
 
   &__body {
     padding-top: clamp(1rem, 0.3627rem + 2.6144vw, 1.5rem);
@@ -273,6 +470,10 @@ watch(() => route.query, () => {
     gap: 2rem;
     color: var(--color-white);
     padding: 0 2rem;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   &__pagination {

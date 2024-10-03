@@ -7,7 +7,7 @@
       </header>
       <div class="properties-sale__body">
         <div v-if="properties && properties.length > 0" class="properties-sale__list">
-          <template v-for="property in properties" :key="properties.id">
+          <template v-for="property in properties" :key="property.id">
             <PropertyListItem :property="property" />
           </template>
         </div>
@@ -23,11 +23,6 @@ import { onMounted, ref, watch, computed } from "vue"
 import { getBrokers } from "~/data/properties/api"
 import { PropertyTypes } from "~/utils/types"
 import { useWatcher } from "@/composables/watcher"
-
-const pageTitle = computed(() => {
-  const dealType = route.params.dealType
-  return dealType === 'sale' ? 'PROPERTIES FOR SALE' : 'PROPERTIES FOR RENT'
-})
 
 const filters = ref({
   dealType: '',
