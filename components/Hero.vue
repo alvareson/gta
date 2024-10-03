@@ -4,7 +4,7 @@
       <SearchForm />
     </div>
     <div class="hero__video">
-      <video autoplay muted loop>
+      <video autoplay muted loop playsinline webkit-playsinline>
         <source src="/video/los-angeles.mp4" type="video/mp4" />
       </video>
       <div class="hero__text">
@@ -58,6 +58,16 @@
       height: auto;
       z-index: -100;
       object-fit: cover;
+
+      &::-webkit-media-controls {
+        display: none !important;
+      }
+      &::--webkit-media-controls {
+        display: none !important;
+      }
+      &::-moz-media-controls {
+        display: none !important;
+      }
     }
   }
 

@@ -43,47 +43,47 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, Ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useWatcher } from "@/composables/watcher";
+import { ref, computed, Ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useWatcher } from "@/composables/watcher"
 
-const router = useRouter();
-const isMobileSearchVisible = ref(false);
-const isPriceRangeVisible = ref(false);
-const priceBtnRef = ref();
+const router = useRouter()
+const isMobileSearchVisible = ref(false)
+const isPriceRangeVisible = ref(false)
+const priceBtnRef = ref()
 
-const priceValue = ref([0, 1_000_000]);
-const dealType = ref('');
-const neighborhood = ref('');
-const communities = ref<string[]>([]);
-const minPrice = ref(0);
-const maxPrice = ref(1_000_000);
+const priceValue = ref([0, 1_000_000])
+const dealType = ref('')
+const neighborhood = ref('')
+const communities = ref<string[]>([])
+const minPrice = ref(0)
+const maxPrice = ref(1_000_000)
 
-const location = computed(() => "location");
-const metaData: Ref<MetaData | null> = ref(null);
+const location = computed(() => "location")
+const metaData: Ref<MetaData | null> = ref(null)
 
-const locations = ref(["New York", "Los Angeles", "Chicago", "Miami"]);
-const propertyTypes = ref(["Apartment", "House", "Condo", "Townhouse"]);
-const priceOptions = ref(["< $500k", "$500k - $1M", "$1M - $2M", "> $2M"]);
-const selectedLocation = ref("");
-const selectedType = ref("");
-const selectedPrice = ref("");
+const locations = ref(["New York", "Los Angeles", "Chicago", "Miami"])
+const propertyTypes = ref(["Apartment", "House", "Condo", "Townhouse"])
+const priceOptions = ref(["< $500k", "$500k - $1M", "$1M - $2M", "> $2M"])
+const selectedLocation = ref("")
+const selectedType = ref("")
+const selectedPrice = ref("")
 
-useWatcher(isMobileSearchVisible);
+useWatcher(isMobileSearchVisible)
 
 type MetaData = {
-  minPrice: number;
-  maxPrice: number;
-  communities: string[];
-};
+  minPrice: number
+  maxPrice: number
+  communities: string[]
+}
 
 const onSearch = () => {
-  console.log("search");
-};
+  console.log("search")
+}
 
 const setDealType = (type: string) => {
-  dealType.value = type;
-};
+  dealType.value = type
+}
 </script>
 
 <style lang="scss">
@@ -99,7 +99,17 @@ const setDealType = (type: string) => {
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
-      max-width: fit-content;
+      width: 30rem;
+      padding: 1.4rem;
+    }
+
+    @media (max-width: 554px) {
+      width: 20rem;
+      padding: 1.4rem;
+    }
+
+    @media (max-width: 404px) {
+      width: 16rem;
       padding: 1.4rem;
     }
   }
