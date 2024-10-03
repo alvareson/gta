@@ -8,13 +8,8 @@
     </header>
     <div class="developments__body">
       <div class="container">
-        <!-- <div v-if="developments?.data && developments?.data.length > 0" class="developments__cards">
-          <template v-for="property in developments.data" :key="developments.data.id">
-            <PropertyCard :property="property" :broker="findBrokerById(property.broker.id)" />
-          </template>
-        </div> -->
         <div v-if="developments && developments.length > 0" class="developments__cards">
-          <template v-for="development in developments" :key="developments.id">
+          <template v-for="development in developments" :key="development.id">
             <NewDevelopmentCard class="developments__card" :property="development" />
           </template>
         </div>
@@ -224,6 +219,11 @@ watch(() => route.query, () => {
 
   &__search-form {
     width: max-content;
+
+    @media (max-width: 508px) {
+      width: auto;
+      justify-content: center;
+    }
   }
 
   &__header {
@@ -236,6 +236,10 @@ watch(() => route.query, () => {
   &__title {
     margin-bottom: 1.45rem;
 
+    @media (max-width: 508px) {
+      text-align: center;
+    }
+
     @media (max-width: 47.9375rem) {
       margin-bottom: 1.05rem;
     }
@@ -247,6 +251,10 @@ watch(() => route.query, () => {
     color: var(--color-black);
     background: var(--color-tertiary);
     padding-inline: 3rem;
+
+    @media (max-width: 1160px) {
+      padding-inline: 0;
+    }
   }
 
   &__pagination {
@@ -262,6 +270,14 @@ watch(() => route.query, () => {
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1rem, 0.6176rem + 1.5686vw, 2.5rem);
     color: var(--color-white);
+
+    @media (max-width: 1160px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
 
     .property-card,
     .property-card__person {
