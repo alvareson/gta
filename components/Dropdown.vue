@@ -50,6 +50,10 @@ watch(value, (newValue: string) => {
     cursor: pointer;
     font-size: 1rem;
     appearance: none;
+    color: var(--color-black);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
 
   &__icon {
