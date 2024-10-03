@@ -136,7 +136,7 @@ const smallImages = ref<string[]>([
     grid-column: 1 / 2;
     height: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       flex-direction: column;
     }
   }
@@ -146,7 +146,7 @@ const smallImages = ref<string[]>([
     overflow: hidden;
     height: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       width: 100%;
       height: auto;
       flex-direction: row;
@@ -166,9 +166,13 @@ const smallImages = ref<string[]>([
     flex-direction: column;
     gap: 0.5rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       flex: 0;
       flex-direction: row;
+    }
+
+    @media (max-width: 1700px) {
+      display: none;
     }
   }
 
@@ -178,7 +182,7 @@ const smallImages = ref<string[]>([
     object-fit: cover;
     display: block;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       width: calc(50% - 0.25rem);
       height: 100px;
     }
@@ -192,7 +196,13 @@ const smallImages = ref<string[]>([
     margin-left: 1rem;
     height: 20rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
+      height: auto;
+      grid-column: 1 / -1;
+      margin-left: 0;
+    }
+
+    @media (max-width: 1400px) {
       grid-column: 1 / -1;
       margin-left: 0;
     }
@@ -204,7 +214,7 @@ const smallImages = ref<string[]>([
     color: var(--color-black);
     letter-spacing: 0.09rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       font-size: 1.8rem;
       text-align: center;
     }
@@ -214,7 +224,7 @@ const smallImages = ref<string[]>([
     font-size: 1.2rem;
     color: var(--color-black);
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       text-align: center;
     }
   }
@@ -224,9 +234,11 @@ const smallImages = ref<string[]>([
     gap: 4rem;
     margin-bottom: 1rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       align-items: center;
+      justify-content: center;
       gap: 1rem;
+      margin-block: 2rem;
     }
 
     &-item {
@@ -254,7 +266,7 @@ const smallImages = ref<string[]>([
     margin-bottom: 1rem;
     max-width: 100%;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       text-align: center;
     }
   }
@@ -263,7 +275,11 @@ const smallImages = ref<string[]>([
     font-size: 2.8rem;
     color: var(--color-secondary);
 
-    @media (max-width: 768px) {
+    @media (min-width: 1700px) and (max-width: 1840px) {
+      font-size: 2.4rem;
+    }
+
+    @media (max-width: 1400px) {
       text-align: center;
     }
   }
@@ -288,7 +304,7 @@ const smallImages = ref<string[]>([
       0% 100%
     );
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       position: static;
       align-self: center;
       font-size: 1rem;
@@ -329,7 +345,7 @@ const smallImages = ref<string[]>([
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1400px) {
     grid-template-columns: 1fr;
     padding: .4rem .4rem;
   }
