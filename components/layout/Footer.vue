@@ -66,7 +66,7 @@ const isFacebookHovered = ref(false)
 <style lang="scss">
 .footer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 3fr 1fr;
   gap: 1rem;
   padding: 2rem 2rem;
   background: var(--color-black);
@@ -75,9 +75,20 @@ const isFacebookHovered = ref(false)
   line-height: 1.71;
   clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
   &__social {
     display: flex;
     align-items: flex-end;
+
+    @media (max-width: 768px) {
+      order: 2;
+      justify-content: center;
+      margin-top: 2rem;
+    }
 
     .social-icons {
       display: flex;
@@ -88,6 +99,11 @@ const isFacebookHovered = ref(false)
         width: 4rem;
         height: 4rem;
         cursor: pointer;
+
+        @media (max-width: 974px) {
+          width: 3.2rem;
+          height: 3.2rem;
+        }
       }
     }
   }
@@ -99,10 +115,18 @@ const isFacebookHovered = ref(false)
     align-items: center;
     text-align: center;
 
+    @media (max-width: 768px) {
+      padding-left: 1rem;
+    }
+
     &__title {
       font-size: 2.6rem;
       line-height: 1.5;
       margin-bottom: .2rem;
+
+      @media (max-width: 974px) {
+        font-size: 1.8rem;
+      }
     }
   }
 
@@ -111,9 +135,18 @@ const isFacebookHovered = ref(false)
     justify-content: flex-end;
     align-items: flex-end;
 
+    @media (max-width: 768px) {
+      display: none;
+    }
+
     .footer__img {
       width: 114px;
       height: 114px;
+
+      @media (max-width: 974px) {
+        width: 84px;
+        height: 84px;
+      }
     }
   }
 }
@@ -132,6 +165,11 @@ const isFacebookHovered = ref(false)
 .custom-shape {
   height: 19rem;
   width: 50rem;
+
+  @media (max-width: 768px) {
+    height: 14rem;
+    width: 42rem;
+  }
 }
 
 .initial-path {
@@ -141,6 +179,10 @@ const isFacebookHovered = ref(false)
 .second-path {
   transition: transform 1s ease;
   transform: translate(0, 0) scale(1.2);
+
+  @media (hover: hover) and (pointer: fine) {
+    transform: translate(24%, 43%) scale(1.2);
+  }
 }
 
 .third-path {
@@ -148,6 +190,12 @@ const isFacebookHovered = ref(false)
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
   pointer-events: none;
+
+  @media (hover: hover) and (pointer: fine) {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0%, 0%) scale(1.2);
+  }
 }
 
 /* hover state */
