@@ -3,14 +3,14 @@
     <div class="footer__social">
       <div class="social-icons">
         <img
-          :src="isInstagramHovered ? '/img/activated-inst.png' : '/img/inst-logo.png'"
+          :src="instagramSrc"
           alt="Instagram"
           class="social-icon"
           @mouseover="isInstagramHovered = true"
           @mouseleave="isInstagramHovered = false"
         />
         <img
-          :src="isFacebookHovered ? '/img/activated-facebook.png' : '/img/facebook-logo.png'"
+          :src="facebookSrc"
           alt="Facebook"
           class="social-icon"
           @mouseover="isFacebookHovered = true"
@@ -61,6 +61,14 @@
 <script setup lang="ts">
 const isInstagramHovered = ref(false)
 const isFacebookHovered = ref(false)
+
+const instagramSrc = computed(() => {
+  return isInstagramHovered.value ? '/img/activated-inst.png' : '/img/inst-logo.png'
+});
+
+const facebookSrc = computed(() => {
+  return isFacebookHovered.value ? '/img/activated-facebook.png' : '/img/facebook-logo.png'
+});
 </script>
 
 <style lang="scss">
@@ -103,6 +111,16 @@ const isFacebookHovered = ref(false)
         @media (max-width: 974px) {
           width: 3.2rem;
           height: 3.2rem;
+        }
+
+        @media (hover: none) {
+          content: url('/img/activated-inst.png');
+        }
+
+        &:nth-child(2) {
+          @media (hover: none) {
+            content: url('/img/activated-facebook.png');
+          }
         }
       }
     }
@@ -180,7 +198,7 @@ const isFacebookHovered = ref(false)
   transition: transform 1s ease;
   transform: translate(0, 0) scale(1.2);
 
-  @media (hover: hover) and (pointer: fine) {
+  @media (hover: none) and (pointer: coarse) {
     transform: translate(24%, 43%) scale(1.2);
   }
 }
@@ -191,7 +209,7 @@ const isFacebookHovered = ref(false)
   transition: transform 0.4s ease, opacity 0.4s ease;
   pointer-events: none;
 
-  @media (hover: hover) and (pointer: fine) {
+  @media (hover: none) and (pointer: coarse) {
     opacity: 1;
     pointer-events: auto;
     transform: translate(0%, 0%) scale(1.2);
