@@ -167,6 +167,10 @@ onUnmounted(() => {
     margin-bottom: 2rem;
     background: var(--color-white);
     padding-inline: 2rem;
+
+    @media (max-width: 769px) {
+      padding-inline: 0;
+    }
   }
 
   &__title {
@@ -237,7 +241,9 @@ onUnmounted(() => {
         color: var(--color-black);
         padding-top: 2rem;
         > p {
-          padding-top: 4rem;
+          @media (min-width: 769px) {
+            padding-top: 4rem;
+          }
         }
       }
       .about-us-page__image {
@@ -253,6 +259,12 @@ onUnmounted(() => {
 
       .about-us-page__text {
         clip-path: polygon(0 55px, 55px 0, 100% 0, 100% 100%, 0 100%);
+        > h2 {
+          @media (max-width: 769px) {
+            padding-top: 1rem;
+            padding-left: 3rem;
+          }
+        }
       }
     }
 
@@ -346,11 +358,12 @@ onUnmounted(() => {
       display: none;
     }
 
-    @media (min-width: 769px) and (max-width: 1356px) {
+    @media (min-width: 769px) and (max-width: 1800px) {
       img {
         width: 100%;
         height: auto;
         object-fit: cover;
+        max-height: 1000px;
       }
     }
   }
@@ -386,8 +399,8 @@ onUnmounted(() => {
       background-color: var(--color-white);
 
       img {
-        width: 100%; /* Make the image width responsive */
-        height: auto; /* Maintain aspect ratio */
+        width: 100%;
+        height: auto;
         object-fit: cover;
         margin-bottom: 1rem;
       }
