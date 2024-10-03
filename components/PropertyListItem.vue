@@ -3,12 +3,19 @@
 
     <div class="property-list-item__image-section">
       <div class="property-list-item__main-img-container">
-        <img
-          class="property-list-item__main-img"
-          v-if="property.icon"
-          :src="property.icon"
-          alt="Property main image"
-        />
+        <Swiper
+          class="property-list-item__swiper"
+          :modules="[]"
+          slides-per-view="auto"
+        >
+          <SwiperSlide v-for="(image, index) in allImages" :key="index">
+            <img
+              class="property-list-item__main-img"
+              :src="image"
+              alt="Property image"
+            />
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div class="property-list-item__small-images">
         <img
@@ -57,6 +64,8 @@
 import { ref, computed } from 'vue'
 import type { PropType } from 'vue'
 import { MeasurementUnit } from '~/utils/types'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/css'
 
 const props = defineProps({
   property: {
@@ -80,6 +89,13 @@ const formatSalePrice = (price: number) => {
 const formatRentPrice = (price: number) => {
   return `${price.toLocaleString('en-US')} / month`
 }
+
+const allImages = ref<string[]>([
+  '/img/apartments/flat5.jpeg',
+  '/img/apartments/flat6.jpeg',
+  '/img/apartments/flat7.jpeg',
+  '/img/apartments/flat8.jpeg'
+])
 
 const smallImages = ref<string[]>([
   '/img/apartments/flat2.jpeg',
@@ -119,11 +135,22 @@ const smallImages = ref<string[]>([
     gap: 1rem;
     grid-column: 1 / 2;
     height: 100%;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__main-img-container {
     flex: 2;
     overflow: hidden;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+    }
   }
 
   &__main-img {
@@ -138,13 +165,23 @@ const smallImages = ref<string[]>([
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    @media (max-width: 768px) {
+      flex: 0;
+      flex-direction: row;
+    }
   }
 
   &__small-img {
     width: 100%;
-    height: calc(50% - 0.25rem);
+    height: calc(50% - 0.5rem);
     object-fit: cover;
     display: block;
+
+    @media (max-width: 768px) {
+      width: calc(50% - 0.25rem);
+      height: 100px;
+    }
   }
 
   &__details {
@@ -153,6 +190,12 @@ const smallImages = ref<string[]>([
     flex-direction: column;
     justify-content: space-between;
     margin-left: 1rem;
+    height: 20rem;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / -1;
+      margin-left: 0;
+    }
   }
 
   &__title {
@@ -160,17 +203,31 @@ const smallImages = ref<string[]>([
     margin-bottom: 0.1rem;
     color: var(--color-black);
     letter-spacing: 0.09rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+      text-align: center;
+    }
   }
 
   &__location {
     font-size: 1.2rem;
     color: var(--color-black);
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   &__data {
     display: flex;
     gap: 4rem;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      align-items: center;
+      gap: 1rem;
+    }
 
     &-item {
       display: flex;
@@ -183,7 +240,7 @@ const smallImages = ref<string[]>([
     }
 
     &-bath {
-
+      margin-left: 0.1rem;
     }
 
     &-area {
@@ -195,13 +252,20 @@ const smallImages = ref<string[]>([
     font-size: 1.2rem;
     color: var(--color-black);
     margin-bottom: 1rem;
-    color: var(--color-black);
-    max-width: 70rem;
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   &__price {
     font-size: 2.8rem;
     color: var(--color-secondary);
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   &__details-button {
@@ -216,7 +280,26 @@ const smallImages = ref<string[]>([
     text-decoration: none;
     overflow: hidden;
     transition: color 0.3s ease;
-    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - 20px),
+      calc(100% - 20px) 100%,
+      0% 100%
+    );
+
+    @media (max-width: 768px) {
+      position: static;
+      align-self: center;
+      font-size: 1rem;
+      padding: 0.5rem 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background-color: var(--color-black);
+      color: var(--color-white);
+      text-decoration: none;
+      overflow: hidden;
+    }
 
     &::before {
       content: '';
@@ -228,7 +311,13 @@ const smallImages = ref<string[]>([
       background-color: var(--color-lemon);
       z-index: -1;
       transition: width 0.3s ease;
-      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%);
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 20px),
+        calc(100% - 20px) 100%,
+        0% 100%
+      );
     }
 
     &:hover {
@@ -241,38 +330,8 @@ const smallImages = ref<string[]>([
   }
 
   @media (max-width: 768px) {
-    .property-list-item {
-      grid-template-columns: 1fr;
-    }
-
-    .property-list-item__image-section,
-    .property-list-item__details {
-      grid-column: unset;
-      width: 100%;
-      height: auto;
-    }
-
-    .property-list-item__image-section {
-      flex-direction: column;
-      height: auto;
-    }
-
-    .property-list-item__main-img-container {
-      width: 100%;
-      height: 200px;
-    }
-
-    .property-list-item__small-images {
-      width: 100%;
-      flex-direction: row;
-      gap: 0.5rem;
-      height: 100px;
-    }
-
-    .property-list-item__small-img {
-      height: 100%;
-      width: calc(50% - 0.25rem);
-    }
+    grid-template-columns: 1fr;
+    padding: .4rem .4rem;
   }
 }
 </style>

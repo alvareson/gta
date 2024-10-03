@@ -463,6 +463,10 @@ watch(() => route.query, () => {
     gap: 2rem;
     color: var(--color-white);
     padding: 0 2rem;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   &__pagination {
