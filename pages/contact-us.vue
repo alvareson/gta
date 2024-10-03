@@ -152,7 +152,6 @@ onUnmounted(() => {
 
     @media (max-width: 1356px) and (min-width: 769px) {
       width: 100%;
-      padding: 0 1.5rem;
       font-size: 1.5rem;
     }
     
@@ -171,7 +170,8 @@ onUnmounted(() => {
     background: var(--color-black);
 
     @media (max-width: 1526px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
+      gap: 0;
     }
 
     @media (max-width: 765px) {
@@ -211,8 +211,13 @@ onUnmounted(() => {
 
   &__info-section {
     padding-left: 10rem;
+
+    @media (max-width: 1526px) {
+      padding-left: 1rem;
+    }
+
     @media (max-width: 765px) {
-      padding-left: 3rem;
+      text-align: center;
     }
   }
 
@@ -232,6 +237,10 @@ onUnmounted(() => {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     max-width: 26rem;
+
+    @media (max-width: 1526px) {
+      max-width: 50rem;
+    }
   }
 
   &__form {
@@ -267,11 +276,6 @@ onUnmounted(() => {
     justify-content: space-between;
     align-items: center;
     margin-top: 2.8rem;
-
-    @media (max-width: 1180px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
   }
 
   &__phone,
@@ -304,6 +308,10 @@ onUnmounted(() => {
   &__social-media {
     display: flex;
     gap: 1rem;
+
+    @media (max-width: 765px) {
+      justify-content: center;
+    }
   }
 
   &__social-media svg {
