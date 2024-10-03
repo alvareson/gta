@@ -8,16 +8,22 @@
         <Swiper
           class="new-developments__swiper"
           :modules="[Navigation]"
-          slides-per-view="auto"
+          :slides-per-view="1"
+          :space-between="20"
+          :breakpoints="breakpoints"
           :navigation="{
-						prevEl: prev,
-						nextEl: next,
-						disabledClass: 'new-developments__arrow--disabled',
-        	}"
+            prevEl: prev,
+            nextEl: next,
+            disabledClass: 'new-developments__arrow--disabled',
+          }"
           @swiper="onSwiper"
           @slide-change="onSlideChange"
         >
-					<SwiperSlide class="new-developments__slide" v-for="(apartment, index) in apartments" :key="index">
+          <SwiperSlide
+            class="new-developments__slide"
+            v-for="(apartment, index) in apartments"
+            :key="index"
+          >
             <NewDevelopmentCard class="new-developments__card" :property="apartment" />
           </SwiperSlide>
         </Swiper>
@@ -25,11 +31,6 @@
           <button class="new-developments__arrow" type="button" ref="prev" aria-label="Previous property">
             <Icon name="chevron-left" :width="48" :height="48" :strokeWidth="1.1" />
           </button>
-          <div class="new-developments__number">
-            {{ activeSlide }}
-            <span class="new-developments__number-divider">/</span>
-            {{ totalSlides }}
-          </div>
           <button class="new-developments__arrow" type="button" ref="next" aria-label="Next property">
             <Icon name="chevron-right" :width="48" :height="48" :strokeWidth="1.1" />
           </button>
@@ -45,24 +46,20 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 
-const isMobileFilterVisible = ref(false)
-const pageSize = ref(10)
-const currentPage = ref(1)
-
 const prev = ref(null)
 const next = ref(null)
 const activeSlide = ref(0)
 const totalSlides = ref(0)
 
-const getActiveSlideNumber = swiper => (activeSlide.value = swiper.activeIndex + 1)
+const getActiveSlideNumber = (swiper) => (activeSlide.value = swiper.activeIndex + 1)
 
-const onSwiper = swiper => {
-  swiper.changeLanguageDirection("ltr")
+const onSwiper = (swiper) => {
+  swiper.changeLanguageDirection('ltr')
   getActiveSlideNumber(swiper)
   totalSlides.value = swiper.slides.length
 }
 
-const onSlideChange = swiper => getActiveSlideNumber(swiper)
+const onSlideChange = (swiper) => getActiveSlideNumber(swiper)
 
 const apartments = computed(() => {
   return [
@@ -149,18 +146,36 @@ const apartments = computed(() => {
   ]
 })
 
+const breakpoints = {
+  390: {
+    slidesPerView: 1,
+    spaceBetween: 20,
+  },
+  640: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  1024: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+}
+
 onMounted(() => {
   const swiperElement = document.querySelector('.new-developments__swiper')
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        swiperElement.classList.add('in-view')
-        observer.unobserve(entry.target)
-      }
-    })
-  }, {
-    threshold: 0.1
-  })
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          swiperElement.classList.add('in-view')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.1,
+    }
+  );
   observer.observe(swiperElement)
 })
 </script>
@@ -175,34 +190,8 @@ onMounted(() => {
   &__container {
     padding-left: 2rem;
 
-    @media (max-width: 63.9375rem) {
-      --padding-inline: 1.5rem;
-    }
-  }
-
-  &__header {
-    display: flex;
-    gap: 1rem 2rem;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-
-    @media (max-width: 75rem) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  }
-
-  &__title {
-    color: var(--color-black);
-
-    @media (max-width: 75rem) {
-      margin: 0;
-    }
-
-    @media (max-width: 47.9375rem) {
-      font-size: 0.875rem;
+    @media (max-width: 768px) {
+      padding-left: 1rem;
     }
   }
 
@@ -210,42 +199,34 @@ onMounted(() => {
     overflow: hidden;
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 4s, transform 4s;
+    transition: opacity 0.5s, transform 0.5s;
 
-    @media (max-width: 75rem) {
-      padding-bottom: 5.5rem;
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
-  }
-
-  &__swiper.in-view {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   &__slide {
     display: flex;
     flex-direction: column;
-    max-width: 920px;
-    max-height: 520px;
+    width: 100%;
+    max-height: 530px;
 
-    @media (max-width: 34rem) {
-      width: 12.5rem;
+    @media (max-width: 640px) {
+      padding-right: 0.8rem;
     }
 
     &:not(:last-child) {
-      margin-inline-end: 2.5rem;
+      margin-right: 20px;
+    }
 
-      @media (max-width: 63.9375rem) {
-        margin-inline-end: 2rem;
-      }
+    @media (min-width: 640px) {
+      width: calc((100% - 20px) / 2);
+    }
 
-      @media (max-width: 47.9375rem) {
-        margin-inline-end: 1rem;
-      }
-
-      @media (max-width: 34rem) {
-        margin-inline-end: 0.5rem;
-      }
+    @media (min-width: 1024px) {
+      width: calc((100% - 60px) / 3);
     }
   }
 
@@ -264,11 +245,9 @@ onMounted(() => {
     justify-content: flex-end;
     
     @media (max-width: 75rem) {
-      inset-inline: var(--padding-inline);
-      bottom: 0;
       z-index: 2;
-      justify-content: space-between;
-      margin: 0;
+      gap: 1.4rem;
+      margin-left: 0.8rem;
     }
   }
 
@@ -288,18 +267,6 @@ onMounted(() => {
       color: var(--color-black);
       cursor: default;
       opacity: 1;
-    }
-  }
-
-  &__number {
-    display: none;
-
-    @media (max-width: 75rem) {
-      display: block;
-    }
-
-    &-divider {
-      margin-inline: 1rem;
     }
   }
 }

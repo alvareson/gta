@@ -54,7 +54,6 @@ const formatRentPrice = price => {
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 0.0625rem solid var(--color-quinary);
   transition: border 0.25s;
   background-color: var(--color-black);
   width: 100%;
@@ -66,16 +65,18 @@ const formatRentPrice = price => {
     --padding: 1.5rem;
   }
 
-  &:hover {
-    border-color: var(--color-white);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: var(--color-white);
 
-    .property-card__type {
-      color: var(--color-black);
-      background: var(--color-lemon);
-    }
+      .property-card__type {
+        color: var(--color-black);
+        background: var(--color-lemon);
+      }
 
-    .property-card__img {
-      filter: brightness(100%);
+      .property-card__img {
+        filter: brightness(100%);
+      }
     }
   }
 

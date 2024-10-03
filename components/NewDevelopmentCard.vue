@@ -1,7 +1,12 @@
 <template>
   <AppLink class="new-development-card" :to="`/properties/${property.id}`">
     <div class="new-development-card__image-container">
-      <img class="new-development-card__img" v-if="property.icon" :src="property.icon" alt="" />
+      <img
+        class="new-development-card__img"
+        v-if="property.icon"
+        :src="property.icon"
+        alt=""
+      />
       <div class="new-development-card__content">
         <div class="new-development-card__title semibold-text" v-if="property.title">
           {{ property.title }}
@@ -14,22 +19,22 @@
           <li class="new-development-card__data-item">{{ property.baths }} baths</li>
         </ul>
       </div>
-      <div class="new-development-card__more-details">more details ></div>
+      <div class="new-development-card__more-details">more details &gt;</div>
     </div>
   </AppLink>
 </template>
 
 
 <script setup lang="ts">
-import { ref } from "vue"
-import type { PropType } from "vue"
-import { MeasurementUnit } from "~/utils/types"
+import { ref, computed } from 'vue'
+import type { PropType } from 'vue'
+import { MeasurementUnit } from '~/utils/types'
 
 const props = defineProps({
   property: {
     type: Object as PropType<any>,
     required: true,
-  }
+  },
 })
 
 const measurement = ref<MeasurementUnit>(MeasurementUnit.SquareFeet)
@@ -39,6 +44,7 @@ const displayPrice = computed(() => {
 })
 </script>
 
+
 <style lang="scss">
 .new-development-card {
   border: 0.0625rem solid var(--color-quinary);
@@ -46,13 +52,14 @@ const displayPrice = computed(() => {
   background-color: var(--color-quaternary);
   overflow: hidden;
   position: relative;
-
+  width: 100%;
+  height: 100%;
 
   &__image-container {
     position: relative;
     width: 100%;
     height: 100%;
-    
+
     &::before {
       content: '';
       position: absolute;
@@ -72,13 +79,15 @@ const displayPrice = computed(() => {
       transition: opacity 0.4s ease-in-out;
     }
 
-    &:hover {
-      .new-development-card__more-details {
-        opacity: 1;
-        transform: translate(-50%, -12.8rem);
-      }
-      &::before {
-        opacity: 0;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        .new-development-card__more-details {
+          opacity: 1;
+          transform: translate(-50%, -12.8rem);
+        }
+        &::before {
+          opacity: 0;
+        }
       }
     }
   }
@@ -98,6 +107,16 @@ const displayPrice = computed(() => {
     color: var(--color-white);
     text-align: center;
     padding: 1rem;
+
+    @media (max-width: 768px) {
+      top: 20%;
+      padding: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      top: 28%;
+      padding: 0.6rem;
+    }
   }
 
   &__more-details {
@@ -111,16 +130,27 @@ const displayPrice = computed(() => {
     font-size: 1.8rem;
     text-align: center;
     pointer-events: none;
-  }
 
-  &__type, &__title, &__data, &__price {
-    margin: 0.5rem 0;
-  }
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
 
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+    }
+  }
 
   &__title {
     font-size: 1.4rem;
     font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   &__data {
@@ -130,13 +160,28 @@ const displayPrice = computed(() => {
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
   }
 
   &__data-item {
     font-size: 1.2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+
     &:not(:first-child) {
       &::before {
-        content: "•";
+        content: '•';
         margin: 0 0.5rem;
       }
     }
@@ -145,6 +190,14 @@ const displayPrice = computed(() => {
   &__price {
     font-size: 1.4rem;
     font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 }
 </style>

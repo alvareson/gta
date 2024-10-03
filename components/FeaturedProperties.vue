@@ -2,7 +2,10 @@
   <section class="featured-properties">
     <div class="featured-properties__container">
       <header class="featured-properties__header">
-        <h2 class="featured-properties__title">View Our Selected Properties ></h2>
+        <h2 class="featured-properties__title">
+          <span class="featured-properties__title--desktop">View Our Selected Properties &gt;</span>
+          <span class="featured-properties__title--mobile">Selected Properties &gt;</span>
+        </h2>
       </header>
       <div v-if="apartments && apartments.length > 0">
         <Swiper
@@ -28,11 +31,6 @@
           <button class="featured-properties__arrow" type="button" ref="prev" aria-label="Previous property">
             <Icon name="chevron-left" :width="48" :height="48" :strokeWidth="1.1" style="margin-right: 4px;" />
           </button>
-          <div class="featured-properties__number">
-            {{ activeSlide }}
-            <span class="featured-properties__number-divider">/</span>
-            {{ totalSlides }}
-          </div>
           <button class="featured-properties__arrow" type="button" ref="next" aria-label="Next property">
             <Icon name="chevron-right" :width="48" :height="48" :strokeWidth="1.1" style="margin-left: 4px;" />
           </button>
@@ -52,8 +50,6 @@ const isMobileFilterVisible = ref(false)
 const pageSize = ref(10)
 const currentPage = ref(1)
 
-// const { locale } = useI18n()
-
 const prev = ref(null)
 const next = ref(null)
 const activeSlide = ref(0)
@@ -62,11 +58,7 @@ const totalSlides = ref(0)
 const getActiveSlideNumber = swiper => (activeSlide.value = swiper.activeIndex + 1)
 
 const onSwiper = swiper => {
-  // if (locale.value === "ar-EG") {
-  //   swiper.changeLanguageDirection("rtl")
-  // } else {
-  //   swiper.changeLanguageDirection("ltr")
-  // }
+
   swiper.changeLanguageDirection("ltr")
   getActiveSlideNumber(swiper)
   totalSlides.value = swiper.slides.length
@@ -215,12 +207,22 @@ onMounted(() => {
   &__title {
     color: var(--color-black);
 
-    @media (max-width: 75rem) {
-      margin: 0;
+    &--mobile {
+      display: none;
     }
 
-    @media (max-width: 47.9375rem) {
-      font-size: 0.875rem;
+    @media (max-width: 768px) {
+      &--desktop {
+        display: none;
+      }
+      &--mobile {
+        display: inline;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -231,7 +233,7 @@ onMounted(() => {
     transition: opacity 4s, transform 4s;
 
     @media (max-width: 75rem) {
-      padding-bottom: 5.5rem;
+      padding-bottom: 1.5rem;
     }
   }
 
@@ -241,15 +243,15 @@ onMounted(() => {
   }
 
   &__slide {
-    max-width: 24rem;
+    max-width: 27rem;
     height: auto;
 
     @media (max-width: 34rem) {
-      width: 12.5rem;
+      width: 20.5rem;
     }
 
     &:not(:last-child) {
-      margin-inline-end: 5.2rem;
+      margin-inline-end: 3.2rem;
 
       @media (max-width: 63.9375rem) {
         margin-inline-end: 2rem;
@@ -286,12 +288,14 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
 
-    &:hover {
-      .featured-properties__card {
-        transform: translateY(-1.4rem);
-      }
-      .featured-properties__more-details {
-        opacity: 1;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        .featured-properties__card {
+          transform: translateY(-1.4rem);
+        }
+        .featured-properties__more-details {
+          opacity: 1;
+        }
       }
     }
   }
@@ -318,12 +322,9 @@ onMounted(() => {
     justify-content: flex-end;
 
     @media (max-width: 75rem) {
-      position: absolute;
-      inset-inline: var(--padding-inline);
-      bottom: 0;
       z-index: 2;
-      justify-content: space-between;
-      margin: 0;
+      gap: 1rem;
+      margin-top: 0rem;
     }
   }
 
@@ -343,18 +344,6 @@ onMounted(() => {
       color: var(--color-black);
       cursor: default;
       opacity: 1;
-    }
-  }
-
-  &__number {
-    display: none;
-
-    @media (max-width: 75rem) {
-      display: block;
-    }
-
-    &-divider {
-      margin-inline: 1rem;
     }
   }
 }
