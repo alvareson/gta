@@ -51,7 +51,7 @@ const handleSubmit = async () => {
 
   @media (max-width: 30rem) {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
 
     &.dialog__container {
       max-width: 100%;
@@ -65,7 +65,7 @@ const handleSubmit = async () => {
     padding: 2.5rem;
 
     @media (max-width: 30rem) {
-      padding: 0 1.5rem 6rem;
+      padding: 10rem 1.5rem 6rem;
     }
   }
 
@@ -141,7 +141,7 @@ const handleSubmit = async () => {
     letter-spacing: 0.15rem;
 
     @media (max-width: 30rem) {
-      margin-left: 1.625rem;
+      margin: auto auto;
     }
 
     &-icon {
