@@ -241,6 +241,10 @@ const smallImages = ref<string[]>([
       margin-block: 2rem;
     }
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     &-item {
       display: flex;
       align-items: center;
