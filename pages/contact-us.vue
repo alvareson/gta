@@ -127,6 +127,10 @@ onUnmounted(() => {
     margin-bottom: 3rem;
     background: var(--color-white);
     padding-inline: 2rem;
+
+    @media (max-width: 835px) {
+      padding-inline: 1rem;
+    }
   }
 
   &__title {
@@ -136,7 +140,8 @@ onUnmounted(() => {
     text-align: left;
 
     @media (max-width: 835px) {
-      font-size: 2.1rem;
+      font-size: 1.8rem;
+      text-align: center;
     }
 
     @media (min-width: 836px) and (max-width: 1356px) {
@@ -185,9 +190,12 @@ onUnmounted(() => {
     color: var(--color-white);
     padding-left: 4rem;
 
-    opacity: 0;
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    will-change: transform, opacity;
+    @media (min-width: 765px) {
+      opacity: 0;
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+      will-change: transform, opacity;
+      
+    }
 
     // &.odd {
     //   transform: translateX(-100%);
@@ -197,15 +205,25 @@ onUnmounted(() => {
     // }
 
     &.even {
-      transform: translateX(100%);
+      @media (min-width: 765px) {
+        transform: translateX(100%);
+      }
       @media (max-width: 765px) {
         order: 1;
       }
     }
 
-    &.slide-in {
-      transform: translateX(0);
-      opacity: 1;
+    @media (min-width: 765px) {
+      &.slide-in {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__form-section {
+    @media (max-width: 765px) {
+      padding-left: 1rem;
     }
   }
 
@@ -231,6 +249,10 @@ onUnmounted(() => {
   &__info-title {
     font-size: 2.4rem;
     margin-bottom: 1rem;
+
+    @media (max-width: 765px) {
+      font-size: 1.4rem;
+    }
   }
 
   &__form-description {
@@ -299,6 +321,14 @@ onUnmounted(() => {
     color: var(--color-black);
     border: none;
     cursor: pointer;
+
+    @media (max-width: 765px) {
+      font-size: 0.8rem;
+      clip-path: none;
+      border: 1px solid var(--color-white);
+      padding: 0.5rem 2rem;
+      border-radius: 0.25rem;
+    }
   }
 
   &__info-content {
