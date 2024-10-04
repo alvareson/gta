@@ -20,7 +20,7 @@
     </div>
     <div class="footer__contact">
       <h1 class="footer__contact__title">Your Private Consultation ></h1>
-      <div class="custom-shape-container">
+      <div class="custom-shape-container" @click="isContactUsOpen = true">
         <svg
           class="custom-shape"
           width="140"
@@ -55,20 +55,25 @@
         alt="Footer Logo"
       />
     </div>
+    <Dialog :component="ContactUsDialog" :open="isContactUsOpen" @close="isContactUsOpen = false" />
   </div>
 </template>
 
 <script setup lang="ts">
+import ContactUsDialog from "@/components/ContactUsDialog.vue"
+
 const isInstagramHovered = ref(false)
 const isFacebookHovered = ref(false)
 
+const isContactUsOpen = ref(false)
+
 const instagramSrc = computed(() => {
   return isInstagramHovered.value ? '/img/activated-inst.png' : '/img/inst-logo.png'
-});
+})
 
 const facebookSrc = computed(() => {
   return isFacebookHovered.value ? '/img/activated-facebook.png' : '/img/facebook-logo.png'
-});
+})
 </script>
 
 <style lang="scss">

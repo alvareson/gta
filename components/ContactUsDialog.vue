@@ -28,9 +28,6 @@
           <AppLink class="contact-us-dialog__agree-link" :to="{ path: '#' }">Privacy Policy</AppLink>
         </p>
         <button class="contact-us-dialog__submit" type="submit">
-          <span class="contact-us-dialog__submit-icon">
-            <Icon class="contact-us-dialog__submit-arrow" name="arrow-right" width="58" height="6" />
-          </span>
           Submit
         </button>
       </footer>
@@ -134,6 +131,9 @@ const handleSubmit = async () => {
     align-items: center;
     margin-left: auto;
     padding-block: 0.375rem;
+    border: 0.0625rem solid var(--color-black);
+    border-radius: 0.25rem;
+    padding: 0.4rem;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.33;
