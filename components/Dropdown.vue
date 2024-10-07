@@ -43,12 +43,12 @@ watch(value, (newValue: string) => {
 
   &__select {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.3rem;
+    padding-left: 0.6rem;
     padding-right: 2.5rem;
     background-color: #fff;
     font-size: 1rem;
     cursor: pointer;
-    font-size: 1rem;
     appearance: none;
     color: var(--color-black);
 

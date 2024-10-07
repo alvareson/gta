@@ -20,7 +20,7 @@
 <style lang="scss" scoped>
 .hero {
   position: relative;
-  height: calc(100vh - 8rem);
+  height: calc(100vh - 6rem);
   overflow: hidden;
 
   @media (max-width: 1024px) {
@@ -58,6 +58,7 @@
       height: auto;
       z-index: -100;
       object-fit: cover;
+      filter: grayscale(100%);
 
       &::-webkit-media-controls {
         display: none !important;

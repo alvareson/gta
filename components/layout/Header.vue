@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  height: 8rem;
+  height: 6rem;
   background-color: var(--color-black);
 
   @media (max-width: 1024px) {
@@ -81,10 +81,10 @@ onBeforeUnmount(() => {
   }
 
   &__logo {
-    width: 240px;
-    height: 96px;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+    width: 180px;
+    height: 70px;
+    margin-left: 1rem;
+    margin-bottom: 0.8rem;
 
     img {
       height: 100%;
@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
           position: relative;
           color: var(--color-white);
           text-decoration: none;
-          font-size: 2.4rem;
+          font-size: 2rem;
           padding: 0.5rem 0;
 
           &::after {

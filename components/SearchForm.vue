@@ -93,24 +93,24 @@ const setDealType = (type: string) => {
     display: flex;
     align-items: center;
     background: var(--color-black);
-    padding: 1.4rem;
+    padding: 1.1rem;
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
-      width: 30rem;
-      padding: 1.4rem;
+      width: 36rem;
+      padding: 1.1rem;
     }
 
     @media (max-width: 554px) {
-      width: 20rem;
-      padding: 1.4rem;
+      width: 16rem;
+      padding: 1.1rem;
     }
 
     @media (max-width: 404px) {
-      width: 16rem;
-      padding: 1.4rem;
+      width: 12rem;
+      padding: 1.1rem;
     }
   }
 
@@ -129,14 +129,14 @@ const setDealType = (type: string) => {
   &__dropdown {
     margin-right: 1rem;
     flex: 1;
-    width: 12rem;
+    width: 10rem;
 
     @media (max-width: 947px) {
       width: 100%;
     }
 
     @media (max-width: 768px) {
-      padding-top: 1rem;
+      padding-top: 0.8rem;
     }
   }
 
@@ -146,13 +146,13 @@ const setDealType = (type: string) => {
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 1rem;
-    width: 12rem;
-    height: 2.2rem;
-    margin-right: 1rem;
+    width: 8rem;
+    height: 1.77rem;
+    margin-right: 0.8rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 1rem;
+    padding-left: 0.8rem;
     clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
     transition: background-color 0.5s ease, color 0.5s ease;
 
