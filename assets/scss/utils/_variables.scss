@@ -8,6 +8,7 @@ $colors: (
   "tertiary"  : ( "hex": #fef8ee, "display-p3": 0.992 0.9733 0.9374 ),
   "quaternary": ( "hex": #1e517b, "display-p3": 0.1729 0.3133 0.4691 ), 
   "lemon"     : ( "hex": #caee5a, "display-p3": 0.7921 0.9323 0.3529 ),
+  "grey"      : ( "hex": #828282, "display-p3": 0.5098 0.5098 0.5098 ),
 );
 
 :root {
@@ -17,6 +18,7 @@ $colors: (
   --color-tertiary: #fef8ee;
   --color-quaternary: rgb(30, 81, 123);
   --color-lemon: #caee5a;
+  --color-grey: #828282;
 
   --color-white-rgb: 255, 255, 255;
   --color-black-rgb: 17, 17, 17;

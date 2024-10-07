@@ -32,7 +32,7 @@
       <h2 class="property-list-item__title">{{ property.title }}</h2>
       <p class="property-list-item__location">{{ property.location }}</p>
       
-      <ul class="property-list-item__data">
+      <ul class="property-list-item__data open-sans-text">
         <li class="property-list-item__data-item">
           <Icon name="bed" width="28" height="28" color="black" />
           <p class="property-list-item__data-bed">{{ property.beds }} bedrooms</p>
@@ -48,7 +48,7 @@
       </ul>
 
       <p class="property-list-item__description">{{ property.description }}</p>
-      <p class="property-list-item__price">{{ displayPrice }}</p>
+      <p class="property-list-item__price open-sans-text">{{ displayPrice }}</p>
 
       <AppLink
         class="property-list-item__details-button"
@@ -83,7 +83,7 @@ const displayPrice = computed(() => {
 })
 
 const formatSalePrice = (price: number) => {
-  return `${price.toLocaleString('en-US').replace(/,/g, "'")} AED`
+  return `${price.toLocaleString('en-US').replace(/,/g, ",")} AED`
 }
 
 const formatRentPrice = (price: number) => {
@@ -223,6 +223,7 @@ const smallImages = ref<string[]>([
   &__location {
     font-size: 1.2rem;
     color: var(--color-black);
+    padding-bottom: 0.4rem;
 
     @media (max-width: 1400px) {
       text-align: center;
@@ -267,7 +268,7 @@ const smallImages = ref<string[]>([
   &__description {
     font-size: 1.2rem;
     color: var(--color-black);
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     max-width: 100%;
 
     @media (max-width: 1400px) {
@@ -277,7 +278,7 @@ const smallImages = ref<string[]>([
 
   &__price {
     font-size: 2.8rem;
-    color: var(--color-secondary);
+    color: var(--color-grey);
 
     @media (min-width: 1700px) and (max-width: 1840px) {
       font-size: 2.4rem;
