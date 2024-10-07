@@ -559,6 +559,10 @@ const property = ref({
     padding-bottom: clamp(5rem, 3.7255rem + 5.2288vw, 10rem);
     color: var(--color-white);
     background: var(--color-black);
+
+    @media (max-width: 63.9375rem) {
+      padding-bottom: clamp(3rem, 2.3rem + 5.2288vw, 10rem);
+    }
   }
 
   &__top {
