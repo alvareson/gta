@@ -67,7 +67,7 @@
             <h2 class="property__subtitle text-h1">Features</h2>
             <ul class="property__features-list">
               <li class="property__features-item" v-for="{ name, icon } in amenitiesWithIcons" :key="name">
-                <Icon :name="icon" color="white" /> {{ name }}
+                <Icon :name="icon" /> {{ name }}
               </li>
             </ul>
             <button class="property__features-all" type="button" v-if="amenitiesWithIcons.length > 9" @click="viewAllFeatures">
@@ -211,7 +211,7 @@ const youtubeEmbedUrl = (url: string) => {
 const property = ref({
     id: '66962d5515df0ffb3502c2e2',
     amenities: [
-      'parking', 'elevator', 'pets', 'conciergeService', 'maidService', 'securityService',
+      'ac', 'parking', 'elevator', 'pets', 'conciergeService', 'maidService', 'securityService',
       'lobbyBuilding', 'studyRoom', 'balcony', 'walkInCloset', 'childrensPlayArena',
       'garden', 'barbecueArea', 'sauna', 'sharedGym', 'privateGym', 'sharedPool', 'privatePool',
       'spa', 'viewLandmark', 'nearbyHospitals', 'nearbyPubTransport', 'nearbySchools',

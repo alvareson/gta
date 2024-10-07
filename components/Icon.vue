@@ -5,13 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRefs } from 'vue'
-import spriteUrl from '/public/img/sprite.svg?url'
+import spriteUrl from "/img/sprite.svg?url"
 
 const props = defineProps({
   name: {
     type: String,
-    default: '',
+    default: "",
   },
   width: {
     type: [String, Number],
@@ -35,3 +34,5 @@ const { width: iconWidth, height: iconHeight, name: iconName } = toRefs(props)
 
 const iconUrl = computed(() => `${spriteUrl}#${iconName.value}`)
 </script>
+
+<style lang="scss"></style>
