@@ -5,8 +5,10 @@
       <div class="property-list-item__main-img-container">
         <Swiper
           class="property-list-item__swiper"
-          :modules="[]"
+          :modules="[Navigation]"
           slides-per-view="auto"
+          loop
+          navigation
         >
           <SwiperSlide v-for="(image, index) in allImages" :key="index">
             <img
@@ -64,8 +66,10 @@
 import { ref, computed } from 'vue'
 import type { PropType } from 'vue'
 import { MeasurementUnit } from '~/utils/types'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
+import { Swiper, SwiperSlide } from "swiper/vue"
+import { Navigation } from "swiper/modules"
+import "swiper/css"
+import "swiper/css/navigation"
 
 const props = defineProps({
   property: {
@@ -188,6 +192,14 @@ const smallImages = ref<string[]>([
     }
   }
 
+  &__swiper {
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: var(--color-black);
+      transform: scale(0.5);
+    }
+  }
+
   &__details {
     grid-column: 2 / 3;
     display: flex;
@@ -295,7 +307,7 @@ const smallImages = ref<string[]>([
     font-size: 1.3rem;
     bottom: 2rem;
     right: 5rem;
-    padding: 0.1rem 2.2rem;
+    padding: 0.1rem 2.8rem;
     background-color: var(--color-black);
     color: var(--color-white);
     text-decoration: none;

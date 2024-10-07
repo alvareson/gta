@@ -857,7 +857,7 @@ const property = ref({
     --button-size: 3rem;
     --swiper-navigation-size: 1rem;
     --swiper-navigation-sides-offset: 2rem;
-    --swiper-navigation-color: var(--color-primary);
+    --swiper-navigation-color: var(--color-white);
     --swiper-navigation-top-offset: calc(50% - var(--button-size) / 2);
     width: 100%;
 
@@ -870,10 +870,11 @@ const property = ref({
       width: var(--button-size);
       height: var(--button-size);
       margin: 0;
-      background: var(--color-white);
+      background: var(--color-black);
       border-radius: 50%;
       opacity: 0.7;
       transition: opacity 0.25s;
+      transform: scale(0.8);
 
       &:hover {
         opacity: 1;
