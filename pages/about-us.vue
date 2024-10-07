@@ -73,7 +73,7 @@
         <SwiperSlide v-for="(employee, index) in listOfEmployees" :key="index">
           <div class="employee-card">
             <img :src="employee.image" :alt="employee.name" />
-            <h3>{{ employee.name }}</h3>
+            <h3 class="semibold-text">{{ employee.name }}</h3>
             <p>{{ employee.position }}</p>
           </div>
         </SwiperSlide>
@@ -95,32 +95,27 @@ const listOfEmployees = [
   {
     name: 'Sulaiman Almulla',
     position: 'Chairman',
-    image: '/img/stuff/sulaiman.png'
+    image: '/img/stuff/sulaiman-activated.png'
   },
   {
     name: 'Ali Koko',
     position: 'Chief Executive Officer',
-    image: '/img/stuff/ali.png'
+    image: '/img/stuff/ali-activated.png'
   },
   {
     name: 'Hussein Abdelhameed',
     position: 'Accountant',
-    image: '/img/stuff/hussein.png'
+    image: '/img/stuff/hussein-activated.png'
   },
   {
     name: 'Vivien Ezeji',
     position: 'Administrative Officer',
-    image: '/img/stuff/vivien.png'
-  },
-  {
-    name: 'Brezhnev Agbor',
-    position: 'Property Consultant',
-    image: '/img/stuff/brezhnev.png'
+    image: '/img/stuff/vivien-activated.png'
   },
   {
     name: 'Ibrahim Ashraf Ibrahim',
     position: 'Property Consultant',
-    image: '/img/stuff/ibrahim.png'
+    image: '/img/stuff/ibrahim-activated.png'
   }
 ]
 
@@ -403,6 +398,8 @@ onUnmounted(() => {
         height: auto;
         object-fit: cover;
         margin-bottom: 1rem;
+        transition: filter 0.3s ease-in-out;
+        filter: grayscale(100%);
       }
 
       h3 {
@@ -415,6 +412,10 @@ onUnmounted(() => {
         font-size: 1.2rem;
         color: var(--color-grey);
       }
+    }
+
+    .employee-card:hover img {
+      filter: grayscale(0%);
     }
   }
 }
