@@ -2,7 +2,10 @@
   <section class="new-developments">
     <div class="new-developments__container">
       <header class="new-developments__header">
-        <h2 class="new-developments__title">Off Plan Properties</h2>
+        <h2 class="new-developments__title">
+          <span class="new-developments__title--desktop">Off Plan Properties &gt;</span>
+          <span class="new-developments__title--mobile">Off Plan Properties &gt;</span>
+        </h2>
       </header>
       <div v-if="apartments && apartments.length > 0">
         <Swiper
@@ -192,6 +195,42 @@ onMounted(() => {
 
     @media (max-width: 768px) {
       padding-left: 1rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    gap: 1rem 2rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+
+    @media (max-width: 75rem) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    color: var(--color-black);
+
+    &--mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      &--desktop {
+        display: none;
+      }
+      &--mobile {
+        display: inline;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+      font-size: 1.8rem;
     }
   }
 

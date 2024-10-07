@@ -7,7 +7,7 @@
         :src="property.icon"
         alt=""
       />
-      <div class="new-development-card__content">
+      <div class="new-development-card__content open-sans-text">
         <div class="new-development-card__title semibold-text" v-if="property.title">
           {{ property.title }}
         </div>
@@ -70,9 +70,9 @@ const displayPrice = computed(() => {
       pointer-events: none;
       background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.25) 25%,
-        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 25%,
+        rgba(0, 0, 0, 0.2) 50%,
         rgba(0, 0, 0, 0) 100%
       );
       mix-blend-mode: multiply;
@@ -101,7 +101,7 @@ const displayPrice = computed(() => {
   &__content {
     position: absolute;
     width: max-content;
-    top: 22%;
+    top: 16%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color-white);
@@ -141,7 +141,7 @@ const displayPrice = computed(() => {
   }
 
   &__title {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 700;
 
     @media (max-width: 768px) {
@@ -159,7 +159,6 @@ const displayPrice = computed(() => {
     gap: 1rem;
     list-style: none;
     padding: 0;
-    margin: 0;
 
     @media (max-width: 480px) {
       flex-direction: column;
@@ -170,6 +169,8 @@ const displayPrice = computed(() => {
 
   &__data-item {
     font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
 
     @media (max-width: 768px) {
       font-size: 1rem;
@@ -182,14 +183,14 @@ const displayPrice = computed(() => {
     &:not(:first-child) {
       &::before {
         content: '•';
-        margin: 0 0.5rem;
+        padding-right: 1rem;
       }
     }
   }
 
   &__price {
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 600;
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
