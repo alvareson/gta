@@ -10,7 +10,7 @@
       <div class="container">
         <div v-if="developments && developments.length > 0" class="developments__cards">
           <template v-for="development in developments" :key="development.id">
-            <NewDevelopmentCard class="developments__card" :property="development" />
+            <NewDevelopmentCard class="developments__card" :property="development" page="offplan" />
           </template>
         </div>
         <Pagination :total="100" :page-size="pageSize" :page="currentPage" @update:page="changePage" class="developments__pagination" />

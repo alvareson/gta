@@ -7,7 +7,13 @@
         :src="property.icon"
         alt=""
       />
-      <div class="new-development-card__content open-sans-text">
+      <div 
+        :class="[
+          'new-development-card__content',
+          'open-sans-text',
+          { 'new-development-card__content--offplan': page === 'offplan' }
+        ]"
+      >
         <div class="new-development-card__title semibold-text" v-if="property.title">
           {{ property.title }}
         </div>
@@ -19,7 +25,14 @@
           <li class="new-development-card__data-item">{{ property.baths }} baths</li>
         </ul>
       </div>
-      <div class="new-development-card__more-details">more details &gt;</div>
+      <div
+        :class="[
+          'new-development-card__more-details',
+          { 'new-development-card__more-details--offplan': page === 'offplan' }
+        ]"
+      >
+        more details &gt;
+      </div>
     </div>
   </AppLink>
 </template>
@@ -35,6 +48,11 @@ const props = defineProps({
     type: Object as PropType<any>,
     required: true,
   },
+  page: {
+    type: String,
+    required: false,
+    default: "home"
+  }
 })
 
 const measurement = ref<MeasurementUnit>(MeasurementUnit.SquareFeet)
@@ -144,6 +162,10 @@ const displayPrice = computed(() => {
     }
   }
 
+  &__more-details--offplan {
+    bottom: -10rem;
+  }
+
   &__title {
     font-size: 1.8rem;
     font-weight: 700;
@@ -206,6 +228,22 @@ const displayPrice = computed(() => {
 
     @media (max-width: 639px) {
       font-size: 1.2rem;
+    }
+  }
+
+  .new-development-card__content--offplan {
+    top: 20%;
+
+    @media (min-width: 769px) and (max-width: 1400px) {
+      top: 46%;
+    }
+
+    @media (max-width: 768px) {
+      top: 40%;
+    }
+
+    @media (max-width: 480px) {
+      top: 48%;
     }
   }
 }

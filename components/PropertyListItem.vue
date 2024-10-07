@@ -31,25 +31,28 @@
     </div>
 
     <div class="property-list-item__details">
-      <h2 class="property-list-item__title">{{ property.title }}</h2>
-      <p class="property-list-item__location">{{ property.location }}</p>
-      
-      <ul class="property-list-item__data open-sans-text">
-        <li class="property-list-item__data-item">
-          <Icon name="bed" width="28" height="28" color="black" />
-          <p class="property-list-item__data-bed">{{ property.beds }} bedrooms</p>
-        </li>
-        <li class="property-list-item__data-item">
-          <Icon name="bath" width="34" height="34" />
-          <p class="property-list-item__data-bath">{{ property.baths }} bathrooms</p>
-        </li>
-        <li class="property-list-item__data-item">
-          <Icon name="square" width="23" height="23" />
-          <p class="property-list-item__data-area">{{ property.area }} {{ measurement }}</p>
-        </li>
-      </ul>
+      <div class="property-list-item__info">
+        <h2 v-if="property.title" class="property-list-item__title">{{ property.title }}</h2>
+        <p v-if="property.location" class="property-list-item__location">{{ property.location }}</p>
+        
+        <ul class="property-list-item__data open-sans-text">
+          <li class="property-list-item__data-item">
+            <Icon name="bed" width="28" height="28" color="black" />
+            <p class="property-list-item__data-bed">{{ property.beds }} bedrooms</p>
+          </li>
+          <li class="property-list-item__data-item">
+            <Icon name="bath" width="34" height="34" />
+            <p class="property-list-item__data-bath">{{ property.baths }} bathrooms</p>
+          </li>
+          <li class="property-list-item__data-item">
+            <Icon name="square" width="23" height="23" />
+            <p class="property-list-item__data-area">{{ property.area }} {{ measurement }}</p>
+          </li>
+        </ul>
 
-      <p class="property-list-item__description">{{ property.description }}</p>
+        <p class="property-list-item__description">{{ property.description }}</p>
+      </div>
+      
       <p class="property-list-item__price open-sans-text">{{ displayPrice }}</p>
 
       <AppLink
@@ -206,7 +209,6 @@ const smallImages = ref<string[]>([
     flex-direction: column;
     justify-content: space-between;
     margin-left: 1rem;
-    height: 20rem;
 
     @media (max-width: 1400px) {
       height: auto;

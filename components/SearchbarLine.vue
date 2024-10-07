@@ -152,7 +152,7 @@ const onSearch = () => {
     font-size: 1.2rem;
     overflow: hidden;
     width: 12rem;
-    height: 2.21rem;
+    height: 1.8rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;
