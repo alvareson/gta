@@ -16,6 +16,13 @@
           @mouseover="isFacebookHovered = true"
           @mouseleave="isFacebookHovered = false"
         />
+        <img
+          :src="linkedinSrc"
+          alt="Linkedin"
+          class="social-icon"
+          @mouseover="isLinkedinHovered = true"
+          @mouseleave="isLinkedinHovered = false"
+        />
       </div>
     </div>
     <div class="footer__contact">
@@ -63,6 +70,7 @@ import ContactUsDialog from "@/components/ContactUsDialog.vue"
 
 const isInstagramHovered = ref(false)
 const isFacebookHovered = ref(false)
+const isLinkedinHovered = ref(false)
 
 const isContactUsOpen = ref(false)
 
@@ -72,6 +80,10 @@ const instagramSrc = computed(() => {
 
 const facebookSrc = computed(() => {
   return isFacebookHovered.value ? '/img/activated-facebook.png' : '/img/facebook-logo.png'
+})
+
+const linkedinSrc = computed(() => {
+  return isLinkedinHovered.value ? '/img/activated-linkedin.png' : '/img/linkedin-logo.png'
 })
 </script>
 
@@ -124,6 +136,12 @@ const facebookSrc = computed(() => {
         &:nth-child(2) {
           @media (hover: none) {
             content: url('/img/activated-facebook.png');
+          }
+        }
+
+        &:nth-child(3) {
+          @media (hover: none) {
+            content: url('/img/activated-linkedin.png');
           }
         }
       }
