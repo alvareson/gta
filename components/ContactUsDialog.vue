@@ -6,32 +6,36 @@
       </svg> -->
       <h2 class="contact-us-dialog__title text-h3">We Are Here to Help</h2>
       <button class="contact-us-dialog__close" type="button" aria-label="Close" @click="$emit('close')">
-        <Icon name="close" width="32" height="32" />
+        <Icon name="close" width="42" height="42" />
       </button>
       <div class="contact-us-dialog__body">
         <div class="input">
-          <label class="input__label" for="contact-name">Your name</label>
-          <input class="input__field" id="contact-name" v-model="name" type="text" placeholder="Enter name here" required />
+          <label class="input__label" for="contact-name">your first name</label>
+          <input class="input__field" id="contact-name" v-model="name" type="text" placeholder="Enter first name here" required />
         </div>
         <div class="input">
-          <label class="input__label" for="contact-email">Email address</label>
+          <label class="input__label" for="contact-last-name">your last name</label>
+          <input class="input__field" id="contact-last-name" v-model="lastname" type="text" placeholder="Enter last name here" required />
+        </div>
+        <div class="input">
+          <label class="input__label" for="contact-email">email address</label>
           <input class="input__field" id="contact-email" v-model="email" type="email" inputmode="email" placeholder="Enter your email address" required />
         </div>
         <div class="input">
-          <label class="input__label" for="contact-phone">Phone</label>
-          <input class="input__field" id="contact-phone" v-model="phone" type="tel" inputmode="tel" placeholder="Enter your phone number (optional)" />
+          <label class="input__label" for="contact-phone">phone</label>
+          <input class="input__field" id="contact-phone" v-model="phone" type="tel" inputmode="tel" placeholder="Enter your phone number (international format)" />
         </div>
       </div>
-      <footer class="contact-us-dialog__footer">
-        <p class="contact-us-dialog__agree">
-          By clicking «Submit» you agree to our
-          <AppLink class="contact-us-dialog__agree-link" :to="{ path: '#' }">Privacy Policy</AppLink>
-        </p>
-        <button class="contact-us-dialog__submit" type="submit">
-          Submit
-        </button>
-      </footer>
     </div>
+    <footer class="contact-us-dialog__footer">
+      <p class="contact-us-dialog__agree">
+        By clicking «Submit» you agree to our
+        <AppLink class="contact-us-dialog__agree-link" :to="{ path: '#' }">Privacy Policy</AppLink>
+      </p>
+      <button class="contact-us-dialog__submit" type="submit">
+        submit
+      </button>
+    </footer>
   </form>
 </template>
 
@@ -48,6 +52,7 @@ const handleSubmit = async () => {
 .contact-us-dialog {
   width: min(27.75rem, 100%);
   overflow: auto;
+  clip-path: polygon(50px 0, 100% 0, 100% 100%, 0 100%, 0 50px);
 
   @media (max-width: 30rem) {
     width: 100%;
@@ -62,7 +67,8 @@ const handleSubmit = async () => {
   &__inner {
     position: relative;
     min-height: 100%;
-    padding: 2.5rem;
+    padding: 2.8rem;
+    color: var(--color-white);
 
     @media (max-width: 30rem) {
       padding: 10rem 1.5rem 6rem;
@@ -80,32 +86,35 @@ const handleSubmit = async () => {
 
   &__title {
     margin-bottom: 2rem;
+    margin-left: 1rem;
     line-height: 1.4;
   }
 
   &__close {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
   }
 
   &__body {
     display: grid;
     gap: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
   }
 
   &__footer {
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    justify-content: space-between;
   }
 
   &__agree {
-    max-width: 25ch;
-    font-size: 0.75rem;
+    padding-left: 2.8rem;
+    padding-top: 1rem;
+    max-width: 15rem;
+    font-size: 0.8rem;
     line-height: 1.33;
     opacity: 0.5;
+    color: var(--color-white);
 
     @media (max-width: 30rem) {
       position: absolute;
@@ -126,54 +135,22 @@ const handleSubmit = async () => {
   }
 
   &__submit {
-    display: flex;
-    gap: 0.625rem;
-    align-items: center;
-    margin-left: auto;
-    padding-block: 0.375rem;
-    border: 0.0625rem solid var(--color-black);
-    border-radius: 0.25rem;
-    padding: 0.4rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1.33;
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
+    font-size: 1.8rem;
+    justify-self: flex-end;
+    max-width: fit-content;
+    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+    padding: 1rem 2rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: none;
+    cursor: pointer;
 
-    @media (max-width: 30rem) {
-      margin: auto auto;
-    }
-
-    &-icon {
-      display: grid;
-      place-items: center;
-
-      &::before {
-        grid-area: 1 / -1;
-        width: 2rem;
-        height: 2rem;
-        content: "";
-        border: 0.0625rem solid var(--color-black);
-        opacity: 0.2;
-        transition: 0.3s;
-        transition-property: transform, opacity;
-        transform: rotate(45deg);
-
-        .contact-us-dialog__submit:hover & {
-          opacity: 0;
-          transform: rotate(135deg);
-        }
-      }
-    }
-
-    &-arrow {
-      grid-area: 1 / -1;
-      transition: transform 0.3s;
-      transform: translateX(-1.625rem);
-
-      .contact-us-dialog__submit:hover & {
-        transform: translateX(-0.5rem);
-      }
+    @media (max-width: 765px) {
+      font-size: 0.8rem;
+      clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px);
+      border: 1px solid var(--color-white);
+      padding: 0.5rem 2rem;
+      border-radius: 0.25rem;
     }
   }
 }
@@ -183,9 +160,8 @@ const handleSubmit = async () => {
     display: block;
     width: fit-content;
     margin-bottom: 0.9375rem;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     line-height: 1.33;
-    text-transform: uppercase;
     letter-spacing: 0.15rem;
     cursor: pointer;
   }
@@ -198,7 +174,7 @@ const handleSubmit = async () => {
     color: inherit;
     background: none;
     border: none;
-    border-bottom: 0.0625rem solid rgba(var(--color-black-rgb), var(--border-opacity));
+    border-bottom: 0.0625rem solid rgba(var(--color-white-rgb), var(--border-opacity));
     transition: border 0.25s;
 
     &::placeholder {

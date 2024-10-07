@@ -106,7 +106,7 @@ watch(open, value => {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
-  background: var(--color-white);
+  background: var(--color-black);
 }
 
 .fade-enter-active, .fade-leave-active {
