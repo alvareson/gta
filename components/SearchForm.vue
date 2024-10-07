@@ -95,7 +95,7 @@ const setDealType = (type: string) => {
     background: var(--color-black);
     padding: 1.1rem;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 20px) 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), calc(100% - 20px) 100%, 0 100%);
     transition: all 0.3s ease;
 
     @media (max-width: 768px) {
@@ -153,7 +153,7 @@ const setDealType = (type: string) => {
     justify-content: flex-start;
     align-items: center;
     padding-left: 0.8rem;
-    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 15px), calc(100% - 20px) 100%, 0 100%);
     transition: background-color 0.5s ease, color 0.5s ease;
 
     @media (max-width: 768px) {
