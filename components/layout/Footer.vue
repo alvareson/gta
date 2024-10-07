@@ -46,7 +46,6 @@
           />
         </svg>
       </div>
-      <!-- <Dialog :component="ContactUsDialog" :open="isContactUsOpen" @close="isContactUsOpen = false" /> -->
     </div>
     <div class="footer__logo">
       <img
@@ -109,13 +108,13 @@ const facebookSrc = computed(() => {
       margin-bottom: 1rem;
 
       .social-icon {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         cursor: pointer;
 
         @media (max-width: 974px) {
-          width: 3.2rem;
-          height: 3.2rem;
+          width: 2.4rem;
+          height: 2.4rem;
         }
 
         @media (hover: none) {
@@ -143,12 +142,12 @@ const facebookSrc = computed(() => {
     }
 
     &__title {
-      font-size: 2.6rem;
+      font-size: 2rem;
       line-height: 1.5;
-      margin-bottom: .2rem;
+      margin-bottom: .1rem;
 
       @media (max-width: 974px) {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
     }
   }
@@ -163,12 +162,12 @@ const facebookSrc = computed(() => {
     }
 
     .footer__img {
-      width: 114px;
-      height: 114px;
+      width: 94px;
+      height: 94px;
 
       @media (max-width: 974px) {
-        width: 84px;
-        height: 84px;
+        width: 74px;
+        height: 74px;
       }
     }
   }

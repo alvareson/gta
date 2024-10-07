@@ -108,6 +108,10 @@ const displayPrice = computed(() => {
     text-align: center;
     padding: 1rem;
 
+    @media (min-width: 769px) and (max-width: 1400px) {
+      top: 26%;
+    }
+
     @media (max-width: 768px) {
       top: 20%;
       padding: 0.8rem;
@@ -144,11 +148,15 @@ const displayPrice = computed(() => {
     font-size: 1.8rem;
     font-weight: 700;
 
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
+    @media (min-width: 769px) and (max-width: 1400px) {
+      font-size: 1.4rem;
     }
 
-    @media (max-width: 480px) {
+    @media (min-width: 640px) and (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 639px) {
       font-size: 1rem;
     }
   }
@@ -172,12 +180,12 @@ const displayPrice = computed(() => {
     font-weight: 600;
     margin-top: 0.4rem;
 
-    @media (max-width: 768px) {
+    @media (min-width: 640px) and (max-width: 768px) {
       font-size: 1rem;
     }
 
-    @media (max-width: 480px) {
-      font-size: 0.9rem;
+    @media (max-width: 639px) {
+      font-size: 1rem;
     }
 
     &:not(:first-child) {
@@ -192,12 +200,12 @@ const displayPrice = computed(() => {
     font-size: 1.4rem;
     font-weight: 600;
 
-    @media (max-width: 768px) {
-      font-size: 1.2rem;
+    @media (min-width: 640px) and (max-width: 768px) {
+      font-size: 1rem;
     }
 
-    @media (max-width: 480px) {
-      font-size: 1rem;
+    @media (max-width: 639px) {
+      font-size: 1.2rem;
     }
   }
 }
