@@ -199,7 +199,7 @@ onMounted(() => {
     overflow: hidden;
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 2s, transform 2s;
 
     &.in-view {
       opacity: 1;

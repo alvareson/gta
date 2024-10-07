@@ -74,7 +74,7 @@ const apartments = computed(() => {
       price: 3200308,
       beds: 7,
       baths: 7,
-      area: 26204,
+      area: 2205,
       title: "Apartments in Downtown",
 			type: "Sale",
       deal: "sale"
@@ -230,7 +230,7 @@ onMounted(() => {
     overflow: visible !important;
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 4s, transform 4s;
+    transition: opacity 2s, transform 2s;
 
     @media (max-width: 75rem) {
       padding-bottom: 1.5rem;

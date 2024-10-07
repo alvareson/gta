@@ -3,13 +3,13 @@
     <img class="property-card__img" v-if="property.icon" :src="property.icon" alt="" />
     <div class="property-card__type" v-if="property.type">{{ property?.type }}</div>
     <div class="property-card__inner">
-      <p class="property-card__price semibold-text" v-if="property.price">
+      <p class="property-card__price" v-if="property.price">
         {{ displayPrice }}
       </p>
-      <ul class="property-card__data semibold-text">
+      <ul class="property-card__data open-sans-text">
         <li class="property-card__data-item">{{ property.beds }} beds</li>
         <li class="property-card__data-item">{{ property.baths }} baths</li>
-        <li class="property-card__data-item">{{ property.area }} {{ measurement }}</li>
+        <li class="property-card__data-item">{{ property.area.toLocaleString('en-US') }} {{ measurement }}</li>
       </ul>
       <div class="property-card__info" v-if="property.title">
         {{ property.title }}
