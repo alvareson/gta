@@ -9,7 +9,7 @@ export const formatPrice = (price, currency: string = "AED", withTrailing = fals
     currency,
     minimumFractionDigits: withTrailing ? 2 : 0,
   })
-  return formatter.format(price)?.replace(/\./g, "'")
+  return formatter.format(price)?.replace(/\./g, ",")
 
 }
 

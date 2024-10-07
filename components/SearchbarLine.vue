@@ -141,7 +141,7 @@ const onSearch = () => {
   &__dropdown {
     margin-right: .8rem;
     flex: 1;
-    width: 12rem;
+    width: 10rem;
   }
 
   &__search-btn {
@@ -149,16 +149,16 @@ const onSearch = () => {
     cursor: pointer;
     background-color: var(--color-white);
     color: var(--color-black);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     overflow: hidden;
-    width: 12rem;
+    width: 8rem;
     height: 1.8rem;
     margin-right: 1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 1rem;
-    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    padding-left: .9rem;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% calc(100% - 15px), calc(100% - 20px) 100%, 0 100%);
     transition: background-color 0.5s ease;
 
     &::before {

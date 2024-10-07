@@ -40,7 +40,7 @@
           </form>
         </div>
 
-        <div class="contact-us__info-section">
+        <div class="contact-us__info-section open-sans-text">
           <h2 class="contact-us__info-title">Contacts</h2>
           <address class="contact-us__info-content">
             <div class="contact-us__info-address">
